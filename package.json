@@ -1,0 +1,55 @@
+{
+  "name": "adsturbo-creative-mcp",
+  "version": "0.1.0",
+  "description": "A local-only MCP server for AI video ad briefs, hooks, UGC scripts, storyboards, reviews, and AdsTurbo-ready prompts.",
+  "type": "module",
+  "bin": {
+    "adsturbo-creative-mcp": "./dist/server.js"
+  },
+  "files": [
+    "dist",
+    "schema",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/server.ts",
+    "start": "node dist/server.js",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/server.js",
+    "test": "npm run build && node dist/smoke-test.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "adsturbo",
+    "ad-creative",
+    "video-ads",
+    "ugc-ads",
+    "marketing-agents",
+    "storyboard"
+  ],
+  "author": "AdsTurbo",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdsTurbo/adsturbo-creative-mcp.git"
+  },
+  "homepage": "https://adsturbo.ai/developers/adsturbo-creative-mcp",
+  "bugs": {
+    "url": "https://github.com/AdsTurbo/adsturbo-creative-mcp/issues"
+  }
+}

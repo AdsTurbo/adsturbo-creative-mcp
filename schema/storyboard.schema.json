@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AdsTurbo/adsturbo-creative-mcp/schema/storyboard.schema.json",
+  "title": "AdsTurbo Creative MCP Storyboard",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["start", "end", "visual", "caption", "voiceover", "purpose"],
+    "properties": {
+      "start": { "type": "integer", "minimum": 0 },
+      "end": { "type": "integer", "minimum": 1 },
+      "visual": { "type": "string" },
+      "caption": { "type": "string" },
+      "voiceover": { "type": "string" },
+      "purpose": {
+        "type": "string",
+        "enum": ["hook", "product", "demo", "proof", "cta"]
+      }
+    }
+  }
+}
