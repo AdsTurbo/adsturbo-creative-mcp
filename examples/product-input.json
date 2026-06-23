@@ -1,9 +1,12 @@
 {
   "productName": "GlowPatch Reusable LED Face Mask",
+  "brandName": "GlowPatch",
+  "productUrl": "https://example.com/products/glowpatch-led-mask",
   "category": "beauty device",
   "audience": "busy skincare buyers who want a simple at-home routine",
   "platform": "tiktok",
   "durationSeconds": 30,
+  "price": "$89",
   "benefits": [
     "hands-free 10 minute sessions",
     "reusable silicone mask",
@@ -21,5 +24,16 @@
     "one-button mode switching"
   ],
   "offer": "15% off this week",
-  "tone": "friendly UGC demo"
+  "tone": "friendly UGC demo",
+  "primaryCta": "Shop the routine",
+  "requiredShots": [
+    "mask close-up on a bathroom counter",
+    "creator wearing the mask while making coffee",
+    "one-button mode switching close-up",
+    "end card with product, offer, and CTA"
+  ],
+  "forbiddenClaims": [
+    "cures acne",
+    "guaranteed results overnight"
+  ]
 }

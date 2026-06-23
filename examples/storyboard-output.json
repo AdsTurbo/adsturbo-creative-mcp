@@ -1,0 +1,73 @@
+{
+  "platform": "tiktok",
+  "durationSeconds": 30,
+  "aspectRatio": "9:16",
+  "scenes": [
+    {
+      "start": 0,
+      "end": 3,
+      "visual": "Fast close-up of the buyer problem",
+      "caption": "too many skincare steps?",
+      "voiceover": "If busy skincare buyers who want a simple at-home routine are tired of too many skincare steps, watch this.",
+      "purpose": "hook",
+      "shotType": "close-up",
+      "productionNotes": [
+        "Make the pain point visible before naming the product."
+      ]
+    },
+    {
+      "start": 3,
+      "end": 7,
+      "visual": "Product enters frame in real use",
+      "caption": "hands-free 10 minute sessions",
+      "voiceover": "This is GlowPatch Reusable LED Face Mask.",
+      "purpose": "product",
+      "shotType": "product-demo",
+      "productionNotes": [
+        "mask close-up on a bathroom counter"
+      ]
+    },
+    {
+      "start": 7,
+      "end": 14,
+      "visual": "Feature sequence with tight product shots",
+      "caption": "hands-free 10 minute sessions / reusable silicone mask / red and blue light modes",
+      "voiceover": "It is built for busy skincare buyers who want a simple at-home routine.",
+      "purpose": "demo",
+      "shotType": "product-demo",
+      "productionNotes": [
+        "mask close-up on a bathroom counter",
+        "creator wearing the mask while making coffee"
+      ]
+    },
+    {
+      "start": 14,
+      "end": 22,
+      "visual": "Show product fitting into the buyer routine",
+      "caption": "designed for daily at-home use",
+      "voiceover": "The proof is simple: designed for daily at-home use.",
+      "purpose": "proof",
+      "shotType": "lifestyle",
+      "productionNotes": [
+        "Use only substantiated proof points and rights-cleared assets."
+      ]
+    },
+    {
+      "start": 22,
+      "end": 30,
+      "visual": "Product hero shot with clear offer",
+      "caption": "15% off this week",
+      "voiceover": "Try GlowPatch Reusable LED Face Mask today.",
+      "purpose": "cta",
+      "shotType": "hero-shot",
+      "productionNotes": [
+        "Keep CTA readable and avoid false urgency."
+      ]
+    }
+  ],
+  "cta": "15% off this week",
+  "notes": [
+    "Storyboard is a planning artifact and does not trigger AdsTurbo generation.",
+    "Review claims, rights, and platform policy before production."
+  ]
+}

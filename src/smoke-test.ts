@@ -5,6 +5,7 @@ import {
   generateStoryboard,
   reviewAdScript,
   writeUgcScripts,
+  buildVariationPlan,
 } from './workflows.js';
 import type { ProductInput } from './types.js';
 
@@ -18,20 +19,28 @@ const input: ProductInput = {
   painPoints: ['too many skincare steps', 'expensive appointments'],
   proofPoints: ['designed for daily at-home use', 'soft flexible fit'],
   offer: '15% off this week',
+  primaryCta: 'Shop the routine',
+  requiredShots: ['mask close-up', 'one-button mode switching', 'end card with offer'],
+  forbiddenClaims: ['cures acne'],
 };
 
 const brief = buildAdBrief(input);
 const hooks = generateHooks(input, 5);
 const scripts = writeUgcScripts(input);
 const storyboard = generateStoryboard(input);
+const variations = buildVariationPlan(input);
 const prompt = exportAdsTurboPrompt(input);
 const review = reviewAdScript(`${scripts[0].hook}\n${scripts[0].problem}\n${scripts[0].demo}\n${scripts[0].proof}\n${scripts[0].cta}`);
 
 if (!brief.adsturboPrompt.includes(input.productName)) throw new Error('brief prompt missing product name');
 if (hooks.length !== 5) throw new Error('hook count mismatch');
 if (scripts.length !== 3) throw new Error('script count mismatch');
-if (storyboard.length !== 5) throw new Error('storyboard count mismatch');
+if (storyboard.scenes.length !== 5) throw new Error('storyboard count mismatch');
+if (storyboard.aspectRatio !== '9:16') throw new Error('storyboard aspect ratio mismatch');
+if (variations.length < 5) throw new Error('variation plan too short');
+if (!scripts[0].onScreenText.length) throw new Error('script missing on-screen text');
 if (!prompt.includes('mobile-first 9:16')) throw new Error('prompt missing format guidance');
 if (review.score < 60) throw new Error('review score unexpectedly low');
+if (!review.checks.length) throw new Error('review checks missing');
 
 console.log('smoke test passed');

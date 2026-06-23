@@ -5,7 +5,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod';
 import {
   buildAdBrief,
-  buildAngles,
+  buildVariationPlan,
   exportAdsTurboPrompt,
   generateHooks,
   generateStoryboard,
@@ -21,6 +21,9 @@ const ProductInputSchema = {
   productName: z.string().min(1).describe('Product name.'),
   audience: z.string().min(1).describe('Target audience.'),
   category: z.string().optional().describe('Product category.'),
+  brandName: z.string().optional().describe('Brand name.'),
+  productUrl: z.string().optional().describe('Optional product URL for context only. This server does not fetch it.'),
+  price: z.string().optional().describe('Optional price or price range.'),
   platform: PlatformSchema.optional().describe('Target platform.'),
   durationSeconds: z.number().int().min(15).max(90).optional().describe('Target video duration.'),
   benefits: z.array(z.string()).optional().describe('Product benefits.'),
@@ -28,12 +31,18 @@ const ProductInputSchema = {
   proofPoints: z.array(z.string()).optional().describe('Proof points, trust cues, or substantiated claims.'),
   offer: z.string().optional().describe('Offer or CTA context.'),
   tone: z.string().optional().describe('Creative tone, such as friendly UGC demo.'),
+  primaryCta: z.string().optional().describe('Primary CTA.'),
+  requiredShots: z.array(z.string()).optional().describe('Shots that must appear in the creative plan.'),
+  forbiddenClaims: z.array(z.string()).optional().describe('Unsupported or forbidden claims to avoid.'),
 };
 
 const productInputFromArgs = (args: z.infer<z.ZodObject<typeof ProductInputSchema>>): ProductInput => ({
   productName: args.productName,
   audience: args.audience,
   category: args.category,
+  brandName: args.brandName,
+  productUrl: args.productUrl,
+  price: args.price,
   platform: args.platform,
   durationSeconds: args.durationSeconds,
   benefits: args.benefits,
@@ -41,6 +50,9 @@ const productInputFromArgs = (args: z.infer<z.ZodObject<typeof ProductInputSchem
   proofPoints: args.proofPoints,
   offer: args.offer,
   tone: args.tone,
+  primaryCta: args.primaryCta,
+  requiredShots: args.requiredShots,
+  forbiddenClaims: args.forbiddenClaims,
 });
 
 const response = (data: unknown, label: string) => ({
@@ -63,7 +75,7 @@ export function createServer() {
     'build_ad_brief',
     {
       title: 'Build video ad brief',
-      description: 'Create a complete local-only video ad brief from product details. No AdsTurbo API calls.',
+      description: 'Create a complete local-only video ad brief from product details, including angles, scripts, storyboard, compliance notes, and an AdsTurbo-ready prompt. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
     async (args) => response(buildAdBrief(productInputFromArgs(args)), 'Video Ad Brief'),
@@ -86,7 +98,7 @@ export function createServer() {
     'write_ugc_script',
     {
       title: 'Write UGC ad scripts',
-      description: 'Write three UGC-style ad scripts with hook, problem, demo, proof, and CTA. No AdsTurbo API calls.',
+      description: 'Write three UGC-style ad scripts with hook, problem, demo, proof, CTA, on-screen text, and shot notes. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
     async (args) => response(writeUgcScripts(productInputFromArgs(args)), 'UGC Scripts'),
@@ -96,7 +108,7 @@ export function createServer() {
     'generate_storyboard',
     {
       title: 'Generate video ad storyboard',
-      description: 'Generate a short-form video ad storyboard JSON. No AdsTurbo API calls.',
+      description: 'Generate a short-form video ad storyboard object with platform, aspect ratio, timing, scenes, CTA, and production notes. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
     async (args) => response(generateStoryboard(productInputFromArgs(args)), 'Storyboard'),
@@ -106,17 +118,17 @@ export function createServer() {
     'build_variation_plan',
     {
       title: 'Build ad variation plan',
-      description: 'Generate testable ad angles for creative iteration. No AdsTurbo API calls.',
+      description: 'Generate testable ad angles with hooks, visual openings, CTAs, hypotheses, and risk notes. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(buildAngles(productInputFromArgs(args)), 'Variation Plan'),
+    async (args) => response(buildVariationPlan(productInputFromArgs(args)), 'Variation Plan'),
   );
 
   server.registerTool(
     'review_ad_script',
     {
       title: 'Review ad script',
-      description: 'Review a script for hook, problem, demo, proof, CTA, caption readiness, and risk notes.',
+      description: 'Review a script for hook, problem, demo, proof, CTA, first-three-seconds clarity, mobile framing, caption readiness, and risk notes.',
       inputSchema: {
         script: z.string().min(1).describe('Ad script to review.'),
       },
