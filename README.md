@@ -2,6 +2,8 @@
 
 Local MCP server for AI video ad planning.
 
+[简体中文](README.zh-CN.md)
+
 AdsTurbo Creative MCP helps AI agents plan video ad briefs, hooks, UGC scripts, storyboards, variation plans, script reviews, and AdsTurbo-ready prompts before a team spends on video generation.
 
 It is a planning layer only:
@@ -102,6 +104,8 @@ Forbidden claims: cures acne, guaranteed results overnight
   "offer": "15% off this week",
   "tone": "friendly UGC demo",
   "primaryCta": "Shop the routine",
+  "locale": "en",
+  "websiteRegion": "global",
   "requiredShots": [
     "mask close-up on a bathroom counter",
     "creator wearing the mask while making coffee"
@@ -115,9 +119,33 @@ Forbidden claims: cures acne, guaranteed results overnight
 
 The server does not fetch `productUrl`. It is context only.
 
+## Language and website region
+
+Use `locale` to control the language of MCP output:
+
+- `en`: English output
+- `zh`: Chinese output
+
+Use `websiteRegion` to control AdsTurbo website links returned by tools:
+
+- `global`: use `https://adsturbo.ai`
+- `cn`: use `https://adsturbo.cn`
+
+Examples:
+
+```json
+{
+  "locale": "zh",
+  "websiteRegion": "cn"
+}
+```
+
+This returns Chinese planning output and AdsTurbo China links such as `https://adsturbo.cn/features/product-video`.
+
 ## Example outputs
 
 - [examples/storyboard-output.json](examples/storyboard-output.json)
+- [examples/storyboard-output.zh-CN.json](examples/storyboard-output.zh-CN.json)
 - [examples/ugc-script-review.md](examples/ugc-script-review.md)
 - [examples/product-input.json](examples/product-input.json)
 
@@ -155,6 +183,7 @@ Full notes: [docs/safety-and-compliance.md](docs/safety-and-compliance.md)
 - [product-page-to-ad-brief](https://github.com/AdsTurbo/product-page-to-ad-brief)
 - [skill-adsturbo](https://github.com/AdsTurbo/skill-adsturbo)
 - [AdsTurbo Open API](https://adsturbo.ai/open-api)
+- [AdsTurbo China](https://adsturbo.cn)
 
 ## Development
 

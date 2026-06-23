@@ -1,4 +1,13 @@
 export type Platform = 'tiktok' | 'reels' | 'shorts' | 'meta' | 'youtube';
+export type Locale = 'en' | 'zh';
+export type WebsiteRegion = 'global' | 'cn';
+
+export interface AdsTurboLinks {
+  home: string;
+  openApi: string;
+  productVideo: string;
+  videoAnalysis: string;
+}
 
 export interface ProductInput {
   productName: string;
@@ -17,6 +26,8 @@ export interface ProductInput {
   primaryCta?: string;
   requiredShots?: string[];
   forbiddenClaims?: string[];
+  locale?: Locale;
+  websiteRegion?: WebsiteRegion;
 }
 
 export interface AdAngle {
@@ -52,15 +63,20 @@ export interface StoryboardScene {
 }
 
 export interface Storyboard {
+  locale: Locale;
+  websiteRegion: WebsiteRegion;
   platform: Platform;
   durationSeconds: number;
   aspectRatio: '9:16' | '1:1' | '16:9';
   scenes: StoryboardScene[];
   cta: string;
   notes: string[];
+  adsTurboLinks: AdsTurboLinks;
 }
 
 export interface AdBrief {
+  locale: Locale;
+  websiteRegion: WebsiteRegion;
   productName: string;
   brandName?: string;
   audience: string;
@@ -77,6 +93,7 @@ export interface AdBrief {
   scripts: UgcScript[];
   storyboard: Storyboard;
   adsturboPrompt: string;
+  adsTurboLinks: AdsTurboLinks;
   complianceNotes: string[];
 }
 
@@ -87,6 +104,8 @@ export interface ScriptReviewCheck {
 }
 
 export interface ScriptReview {
+  locale: Locale;
+  websiteRegion: WebsiteRegion;
   score: number;
   readiness: 'needs work' | 'usable with edits' | 'ready for creative review';
   checks: ScriptReviewCheck[];
@@ -95,4 +114,5 @@ export interface ScriptReview {
   suggestions: string[];
   riskNotes: string[];
   recommendedNextStep: string;
+  adsTurboLinks: AdsTurboLinks;
 }

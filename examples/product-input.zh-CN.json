@@ -1,0 +1,41 @@
+{
+  "productName": "GlowPatch 可重复使用 LED 面膜",
+  "brandName": "GlowPatch",
+  "productUrl": "https://example.cn/products/glowpatch-led-mask",
+  "category": "美容仪",
+  "audience": "想要简单居家护肤流程的忙碌护肤用户",
+  "platform": "tiktok",
+  "durationSeconds": 30,
+  "price": "¥599",
+  "benefits": [
+    "10 分钟免手持护理",
+    "可重复使用的柔软硅胶面罩",
+    "红光和蓝光两种模式",
+    "USB-C 充电"
+  ],
+  "painPoints": [
+    "护肤步骤太多",
+    "线下护理价格高",
+    "很难坚持规律护肤"
+  ],
+  "proofPoints": [
+    "为日常居家使用设计",
+    "柔软贴合",
+    "一键切换模式"
+  ],
+  "offer": "本周 85 折",
+  "tone": "自然友好的 UGC Demo",
+  "primaryCta": "立即了解",
+  "locale": "zh",
+  "websiteRegion": "cn",
+  "requiredShots": [
+    "浴室台面上的面膜近景",
+    "创作者戴着面膜冲咖啡",
+    "一键切换模式特写",
+    "结尾展示产品、优惠和 CTA"
+  ],
+  "forbiddenClaims": [
+    "治疗痘痘",
+    "一夜见效"
+  ]
+}

@@ -1,5 +1,7 @@
 # MCP Client Setup
 
+[简体中文](mcp-client-setup.zh-CN.md)
+
 Build the server first:
 
 ```bash
@@ -36,6 +38,27 @@ npm run inspect
 Use adsturbo-creative to build a TikTok video ad brief for the product in examples/product-input.json.
 Then generate a storyboard and export an AdsTurbo-ready prompt.
 ```
+
+## Language and website region
+
+Pass these fields in tool input when you want localized output and region-specific AdsTurbo links:
+
+```json
+{
+  "locale": "zh",
+  "websiteRegion": "cn"
+}
+```
+
+`locale` controls output language:
+
+- `en`: English
+- `zh`: Chinese
+
+`websiteRegion` controls AdsTurbo links:
+
+- `global`: `https://adsturbo.ai`
+- `cn`: `https://adsturbo.cn`
 
 ## Troubleshooting
 

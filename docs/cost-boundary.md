@@ -1,5 +1,7 @@
 # Cost Boundary
 
+[简体中文](cost-boundary.zh-CN.md)
+
 AdsTurbo Creative MCP is a local planning layer. It should be useful before a user decides to generate a video or call any paid service.
 
 ## What this project does

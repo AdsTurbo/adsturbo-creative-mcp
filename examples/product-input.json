@@ -26,6 +26,8 @@
   "offer": "15% off this week",
   "tone": "friendly UGC demo",
   "primaryCta": "Shop the routine",
+  "locale": "en",
+  "websiteRegion": "global",
   "requiredShots": [
     "mask close-up on a bathroom counter",
     "creator wearing the mask while making coffee",

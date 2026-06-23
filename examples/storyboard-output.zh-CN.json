@@ -1,0 +1,81 @@
+{
+  "locale": "zh",
+  "websiteRegion": "cn",
+  "platform": "tiktok",
+  "durationSeconds": 30,
+  "aspectRatio": "9:16",
+  "scenes": [
+    {
+      "start": 0,
+      "end": 3,
+      "visual": "快速展示用户痛点的近景",
+      "caption": "护肤步骤太多?",
+      "voiceover": "如果想要简单居家护肤流程的忙碌护肤用户已经受够了「护肤步骤太多」，先看这个。",
+      "purpose": "hook",
+      "shotType": "close-up",
+      "productionNotes": [
+        "先让痛点可视化，再出现产品。"
+      ]
+    },
+    {
+      "start": 3,
+      "end": 7,
+      "visual": "产品进入真实使用场景",
+      "caption": "10 分钟免手持护理",
+      "voiceover": "这是 GlowPatch 可重复使用 LED 面膜。",
+      "purpose": "product",
+      "shotType": "product-demo",
+      "productionNotes": [
+        "浴室台面上的面膜近景"
+      ]
+    },
+    {
+      "start": 7,
+      "end": 14,
+      "visual": "用紧凑产品镜头展示功能序列",
+      "caption": "10 分钟免手持护理 / 可重复使用的柔软硅胶面罩 / 红光和蓝光两种模式",
+      "voiceover": "它是为想要简单居家护肤流程的忙碌护肤用户设计的。",
+      "purpose": "demo",
+      "shotType": "product-demo",
+      "productionNotes": [
+        "浴室台面上的面膜近景",
+        "创作者戴着面膜冲咖啡"
+      ]
+    },
+    {
+      "start": 14,
+      "end": 22,
+      "visual": "展示产品如何融入用户日常",
+      "caption": "为日常居家使用设计",
+      "voiceover": "证明点很直接：为日常居家使用设计。",
+      "purpose": "proof",
+      "shotType": "lifestyle",
+      "productionNotes": [
+        "只使用可证明的证明点和已清权素材。"
+      ]
+    },
+    {
+      "start": 22,
+      "end": 30,
+      "visual": "产品 hero shot，配清晰优惠或 CTA",
+      "caption": "本周 85 折",
+      "voiceover": "现在试试 GlowPatch 可重复使用 LED 面膜。",
+      "purpose": "cta",
+      "shotType": "hero-shot",
+      "productionNotes": [
+        "CTA 需要清晰可读，避免虚假紧迫感。"
+      ]
+    }
+  ],
+  "cta": "本周 85 折",
+  "notes": [
+    "Storyboard 只是策划产物，不会触发 AdsTurbo 生成。",
+    "进入生产前，请审核广告主张、素材权利和平台政策。"
+  ],
+  "adsTurboLinks": {
+    "home": "https://adsturbo.cn",
+    "openApi": "https://adsturbo.cn/open-api",
+    "productVideo": "https://adsturbo.cn/features/product-video",
+    "videoAnalysis": "https://adsturbo.cn/features/video-analysis"
+  }
+}

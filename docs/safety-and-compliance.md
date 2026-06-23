@@ -1,5 +1,7 @@
 # Safety and Compliance
 
+[简体中文](safety-and-compliance.zh-CN.md)
+
 AdsTurbo Creative MCP creates planning artifacts. It does not decide whether an ad is legal, compliant, or platform-approved.
 
 ## Creative references

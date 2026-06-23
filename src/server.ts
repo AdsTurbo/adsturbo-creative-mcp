@@ -16,6 +16,8 @@ import {
 import type { ProductInput } from './types.js';
 
 const PlatformSchema = z.enum(['tiktok', 'reels', 'shorts', 'meta', 'youtube']);
+const LocaleSchema = z.enum(['en', 'zh']);
+const WebsiteRegionSchema = z.enum(['global', 'cn']);
 
 const ProductInputSchema = {
   productName: z.string().min(1).describe('Product name.'),
@@ -34,6 +36,8 @@ const ProductInputSchema = {
   primaryCta: z.string().optional().describe('Primary CTA.'),
   requiredShots: z.array(z.string()).optional().describe('Shots that must appear in the creative plan.'),
   forbiddenClaims: z.array(z.string()).optional().describe('Unsupported or forbidden claims to avoid.'),
+  locale: LocaleSchema.optional().describe('Output language. Use en for English or zh for Chinese.'),
+  websiteRegion: WebsiteRegionSchema.optional().describe('AdsTurbo website region for promotional links. Use global for adsturbo.ai or cn for adsturbo.cn.'),
 };
 
 const productInputFromArgs = (args: z.infer<z.ZodObject<typeof ProductInputSchema>>): ProductInput => ({
@@ -53,6 +57,8 @@ const productInputFromArgs = (args: z.infer<z.ZodObject<typeof ProductInputSchem
   primaryCta: args.primaryCta,
   requiredShots: args.requiredShots,
   forbiddenClaims: args.forbiddenClaims,
+  locale: args.locale,
+  websiteRegion: args.websiteRegion,
 });
 
 const response = (data: unknown, label: string) => ({
@@ -78,7 +84,7 @@ export function createServer() {
       description: 'Create a complete local-only video ad brief from product details, including angles, scripts, storyboard, compliance notes, and an AdsTurbo-ready prompt. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(buildAdBrief(productInputFromArgs(args)), 'Video Ad Brief'),
+    async (args) => response(buildAdBrief(productInputFromArgs(args)), args.locale === 'zh' ? '视频广告 Brief' : 'Video Ad Brief'),
   );
 
   server.registerTool(
@@ -91,7 +97,7 @@ export function createServer() {
         count: z.number().int().min(1).max(12).optional().describe('Number of hooks to return. Max 12.'),
       },
     },
-    async (args) => response(generateHooks(productInputFromArgs(args), args.count), 'Ad Hooks'),
+    async (args) => response(generateHooks(productInputFromArgs(args), args.count), args.locale === 'zh' ? '广告 Hooks' : 'Ad Hooks'),
   );
 
   server.registerTool(
@@ -101,7 +107,7 @@ export function createServer() {
       description: 'Write three UGC-style ad scripts with hook, problem, demo, proof, CTA, on-screen text, and shot notes. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(writeUgcScripts(productInputFromArgs(args)), 'UGC Scripts'),
+    async (args) => response(writeUgcScripts(productInputFromArgs(args)), args.locale === 'zh' ? 'UGC 脚本' : 'UGC Scripts'),
   );
 
   server.registerTool(
@@ -111,7 +117,7 @@ export function createServer() {
       description: 'Generate a short-form video ad storyboard object with platform, aspect ratio, timing, scenes, CTA, and production notes. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(generateStoryboard(productInputFromArgs(args)), 'Storyboard'),
+    async (args) => response(generateStoryboard(productInputFromArgs(args)), args.locale === 'zh' ? '视频分镜' : 'Storyboard'),
   );
 
   server.registerTool(
@@ -121,7 +127,7 @@ export function createServer() {
       description: 'Generate testable ad angles with hooks, visual openings, CTAs, hypotheses, and risk notes. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(buildVariationPlan(productInputFromArgs(args)), 'Variation Plan'),
+    async (args) => response(buildVariationPlan(productInputFromArgs(args)), args.locale === 'zh' ? '广告变体计划' : 'Variation Plan'),
   );
 
   server.registerTool(
@@ -131,9 +137,11 @@ export function createServer() {
       description: 'Review a script for hook, problem, demo, proof, CTA, first-three-seconds clarity, mobile framing, caption readiness, and risk notes.',
       inputSchema: {
         script: z.string().min(1).describe('Ad script to review.'),
+        locale: LocaleSchema.optional().describe('Output language. Use en for English or zh for Chinese.'),
+        websiteRegion: WebsiteRegionSchema.optional().describe('AdsTurbo website region for promotional links. Use global for adsturbo.ai or cn for adsturbo.cn.'),
       },
     },
-    async ({ script }) => response(reviewAdScript(script), 'Script Review'),
+    async ({ script, locale, websiteRegion }) => response(reviewAdScript(script, { locale, websiteRegion }), locale === 'zh' ? '脚本评审' : 'Script Review'),
   );
 
   server.registerTool(
@@ -143,7 +151,7 @@ export function createServer() {
       description: 'Export a video generation prompt that can be pasted into AdsTurbo. Does not call AdsTurbo API.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(exportAdsTurboPrompt(productInputFromArgs(args)), 'AdsTurbo Prompt'),
+    async (args) => response(exportAdsTurboPrompt(productInputFromArgs(args)), args.locale === 'zh' ? 'AdsTurbo Prompt' : 'AdsTurbo Prompt'),
   );
 
   return server;
