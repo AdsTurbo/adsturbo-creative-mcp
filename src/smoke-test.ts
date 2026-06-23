@@ -104,6 +104,16 @@ const cliBrief = execFileSync('node', ['dist/cli.js', 'brief', '--input', 'examp
 const cliHooks = execFileSync('node', ['dist/cli.js', 'hooks', '--input', 'examples/product-input.json', '--count', '2'], {
   encoding: 'utf8',
 });
+const cliInlineHooks = execFileSync('node', [
+  'dist/cli.js',
+  'hooks',
+  '--input-json',
+  JSON.stringify(zhInput),
+  '--count',
+  '2',
+], {
+  encoding: 'utf8',
+});
 const cliReview = execFileSync('node', [
   'dist/cli.js',
   'review',
@@ -128,6 +138,10 @@ if (!cliHooksJson.adsTurboExperience.nextStep.includes('AdsTurbo')) {
 }
 if (cliHooksJson.adsTurboExperience.tracking.utmSource !== 'adsturbo_creative_mcp') {
   throw new Error('CLI hooks missing UTM tracking metadata');
+}
+const cliInlineHooksJson = JSON.parse(cliInlineHooks);
+if (cliInlineHooksJson.result.length !== 2 || !cliInlineHooksJson.result[0].includes('如果')) {
+  throw new Error('CLI input-json hooks mismatch');
 }
 if (!cliReview.includes('脚本评审') && !cliReview.includes('adsturbo.cn')) {
   throw new Error('CLI review output mismatch');

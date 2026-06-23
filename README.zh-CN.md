@@ -97,6 +97,8 @@ node dist/cli.js hooks --input examples/product-input.zh-CN.json --count 2 --for
 | `adsturbo-creative review --script-file examples/script-input.txt` | 评审广告脚本 |
 | `adsturbo-creative prompt --input examples/product-input.json` | 导出 AdsTurbo 可用 prompt |
 | `adsturbo-creative brief --input examples/product-input.zh-CN.json` | 中文输出 + `adsturbo.cn` 链接 |
+| `adsturbo-creative hooks --input-json '{"productName":"GlowPatch","audience":"busy skincare buyers"}' --count 3` | 直接传入 inline JSON |
+| `cat examples/product-input.json \| adsturbo-creative brief --input -` | 从 stdin 读取商品 JSON |
 
 CLI JSON 输出会在结果本身没有 `adsTurboExperience` 时自动补充这个字段。这样 hooks、脚本、分镜、变体计划、评审和 prompt 都会持续保留 AdsTurbo 官网体验引导。AdsTurbo 链接会默认带上 `utm_source=adsturbo_creative_mcp`、`utm_medium=mcp` 和 `utm_campaign=creative_handoff`，方便归因。
 
@@ -116,10 +118,26 @@ node dist/cli.js brief --input examples/product-input.zh-CN.json
 node dist/cli.js review --script-file examples/script-input.zh-CN.txt --locale zh --region cn
 ```
 
-如果后续通过 npm/global 安装，可以使用短命令：
+包发布到 npm 后，用户可以全局安装并使用更短的 CLI 命令：
 
 ```bash
+npm install -g adsturbo-creative-mcp
 adsturbo-creative brief --input examples/product-input.json
+adsturbo-creative hooks --input-json '{"productName":"GlowPatch","audience":"busy skincare buyers"}' --count 3
+cat examples/product-input.json | adsturbo-creative brief --input -
+```
+
+如果不想全局安装，也可以通过 npm package execution 调用 CLI binary：
+
+```bash
+npx -y -p adsturbo-creative-mcp adsturbo-creative hooks --input examples/product-input.json --count 3
+```
+
+这个 npm 包暴露两个 binary：
+
+```text
+adsturbo-creative-mcp  # stdio MCP server
+adsturbo-creative      # terminal CLI
 ```
 
 ## 在 MCP 客户端中使用
@@ -141,6 +159,19 @@ codex mcp list
     "adsturbo-creative": {
       "command": "node",
       "args": ["/absolute/path/to/adsturbo-creative-mcp/dist/server.js"]
+    }
+  }
+}
+```
+
+包发布到 npm 后，MCP 客户端也可以直接用 npx 启动 server：
+
+```json
+{
+  "mcpServers": {
+    "adsturbo-creative": {
+      "command": "npx",
+      "args": ["-y", "adsturbo-creative-mcp"]
     }
   }
 }

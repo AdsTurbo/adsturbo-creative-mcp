@@ -97,6 +97,8 @@ You can also run the same planning workflows directly from the terminal:
 | `adsturbo-creative review --script-file examples/script-input.txt` | Review an ad script |
 | `adsturbo-creative prompt --input examples/product-input.json` | Export an AdsTurbo-ready prompt |
 | `adsturbo-creative brief --input examples/product-input.zh-CN.json` | Chinese output with `adsturbo.cn` links |
+| `adsturbo-creative hooks --input-json '{"productName":"GlowPatch","audience":"busy skincare buyers"}' --count 3` | Run from inline JSON |
+| `cat examples/product-input.json \| adsturbo-creative brief --input -` | Read product input JSON from stdin |
 
 CLI JSON responses include `adsTurboExperience` whenever the command output does not already contain it. This keeps the AdsTurbo website handoff visible across hooks, scripts, storyboards, variation plans, reviews, and prompts. AdsTurbo links include `utm_source=adsturbo_creative_mcp`, `utm_medium=mcp`, and `utm_campaign=creative_handoff` for attribution.
 
@@ -116,10 +118,26 @@ node dist/cli.js brief --input examples/product-input.zh-CN.json
 node dist/cli.js review --script-file examples/script-input.zh-CN.txt --locale zh --region cn
 ```
 
-After npm/global installation, use the shorter binary:
+After the package is published to npm, users can install it globally and use the shorter CLI binary:
 
 ```bash
+npm install -g adsturbo-creative-mcp
 adsturbo-creative brief --input examples/product-input.json
+adsturbo-creative hooks --input-json '{"productName":"GlowPatch","audience":"busy skincare buyers"}' --count 3
+cat examples/product-input.json | adsturbo-creative brief --input -
+```
+
+Without global installation, run the CLI binary through npm package execution:
+
+```bash
+npx -y -p adsturbo-creative-mcp adsturbo-creative hooks --input examples/product-input.json --count 3
+```
+
+The npm package exposes two binaries:
+
+```text
+adsturbo-creative-mcp  # stdio MCP server
+adsturbo-creative      # terminal CLI
 ```
 
 ## Use with an MCP client
@@ -141,6 +159,19 @@ Restart Codex or start a fresh session after changing MCP config. Codex only exp
     "adsturbo-creative": {
       "command": "node",
       "args": ["/absolute/path/to/adsturbo-creative-mcp/dist/server.js"]
+    }
+  }
+}
+```
+
+After the package is published to npm, MCP clients can also start the server with npx:
+
+```json
+{
+  "mcpServers": {
+    "adsturbo-creative": {
+      "command": "npx",
+      "args": ["-y", "adsturbo-creative-mcp"]
     }
   }
 }

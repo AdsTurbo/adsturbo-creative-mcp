@@ -50,6 +50,7 @@ Commands:
 
 Options:
   --input <file>          Product input JSON file
+  --input-json <json>     Product input JSON string
   --script <text>         Script text for review
   --script-file <file>    Script text file for review
   --count <number>        Hook count, 1-12. Default: 12
@@ -61,6 +62,8 @@ Options:
 
 Examples:
   adsturbo-creative brief --input examples/product-input.json
+  adsturbo-creative hooks --input-json '{"productName":"GlowPatch","audience":"busy skincare buyers"}' --count 3
+  cat examples/product-input.json | adsturbo-creative brief --input -
   adsturbo-creative hooks --input examples/product-input.json --count 10
   adsturbo-creative storyboard --input examples/product-input.zh-CN.json
   adsturbo-creative review --script-file examples/script-input.zh-CN.txt --locale zh --region cn
@@ -89,7 +92,11 @@ const parseArgs = (argv: string[]): ParsedArgs => {
   return { command, flags };
 };
 
-const readTextFile = (filePath: string) => fs.readFileSync(path.resolve(filePath), 'utf8');
+const readTextFile = (filePath: string) => (
+  filePath === '-'
+    ? fs.readFileSync(0, 'utf8')
+    : fs.readFileSync(path.resolve(filePath), 'utf8')
+);
 
 const flagString = (flags: ParsedArgs['flags'], key: string) => {
   const value = flags[key];
@@ -125,11 +132,15 @@ const normalizeCount = (value: string | undefined) => {
 
 const readProductInput = (flags: ParsedArgs['flags']): ProductInput => {
   const inputPath = flagString(flags, 'input');
-  if (!inputPath) {
-    throw new Error('Missing --input <file> for this command.');
+  const inputJson = flagString(flags, 'input-json');
+  if (!inputPath && !inputJson) {
+    throw new Error('Missing --input <file> or --input-json <json> for this command.');
+  }
+  if (inputPath && inputJson) {
+    throw new Error('Use either --input <file> or --input-json <json>, not both.');
   }
 
-  const input = JSON.parse(readTextFile(inputPath)) as ProductInput;
+  const input = JSON.parse(inputJson || readTextFile(inputPath as string)) as ProductInput;
   const locale = normalizeLocale(flagString(flags, 'locale'));
   const websiteRegion = normalizeRegion(flagString(flags, 'website-region') || flagString(flags, 'region'));
 

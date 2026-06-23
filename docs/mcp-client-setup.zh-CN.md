@@ -24,6 +24,34 @@ npm run build
 
 把 `/absolute/path/to/adsturbo-creative-mcp` 替换成本仓库在本地的绝对路径。
 
+## npm 包配置
+
+包发布到 npm 后，客户端可以用 npx 启动 stdio MCP server，不需要再写本地构建路径：
+
+```json
+{
+  "mcpServers": {
+    "adsturbo-creative": {
+      "command": "npx",
+      "args": ["-y", "adsturbo-creative-mcp"]
+    }
+  }
+}
+```
+
+这个包暴露两个 binary：
+
+```text
+adsturbo-creative-mcp  # 给 MCP 客户端使用的 stdio server
+adsturbo-creative      # 给终端直接调用的 CLI
+```
+
+如果不全局安装，也可以显式调用 CLI binary：
+
+```bash
+npx -y -p adsturbo-creative-mcp adsturbo-creative hooks --input examples/product-input.json --count 3
+```
+
 ## Codex 设置
 
 构建 server 后，在 Codex 里注册它：

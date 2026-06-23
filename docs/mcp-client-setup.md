@@ -26,6 +26,34 @@ Then configure your MCP client to run the stdio server.
 
 Replace `/absolute/path/to/adsturbo-creative-mcp` with the local path to this repository.
 
+## npm package config
+
+After the package is published to npm, clients can launch the stdio MCP server with npx instead of a local build path:
+
+```json
+{
+  "mcpServers": {
+    "adsturbo-creative": {
+      "command": "npx",
+      "args": ["-y", "adsturbo-creative-mcp"]
+    }
+  }
+}
+```
+
+The package exposes two binaries:
+
+```text
+adsturbo-creative-mcp  # stdio MCP server for MCP clients
+adsturbo-creative      # terminal CLI for direct planning commands
+```
+
+For CLI usage without a global install, call the CLI binary explicitly:
+
+```bash
+npx -y -p adsturbo-creative-mcp adsturbo-creative hooks --input examples/product-input.json --count 3
+```
+
 ## Codex setup
 
 After building the server, register it in Codex:

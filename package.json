@@ -21,7 +21,12 @@
     "dev": "tsx src/server.ts",
     "start": "node dist/server.js",
     "inspect": "npx @modelcontextprotocol/inspector node dist/server.js",
-    "test": "npm run build && node dist/smoke-test.js"
+    "test": "npm run build && node dist/smoke-test.js",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm test"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "mcp",
