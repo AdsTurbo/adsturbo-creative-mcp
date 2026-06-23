@@ -9,11 +9,12 @@ import {
   exportAdsTurboPrompt,
   generateHooks,
   generateStoryboard,
+  getAdsTurboExperience,
   reviewAdScript,
   toMarkdown,
   writeUgcScripts,
 } from './workflows.js';
-import type { ProductInput } from './types.js';
+import type { Locale, ProductInput, WebsiteRegion } from './types.js';
 
 const PlatformSchema = z.enum(['tiktok', 'reels', 'shorts', 'meta', 'youtube']);
 const LocaleSchema = z.enum(['en', 'zh']);
@@ -61,15 +62,47 @@ const productInputFromArgs = (args: z.infer<z.ZodObject<typeof ProductInputSchem
   websiteRegion: args.websiteRegion,
 });
 
-const response = (data: unknown, label: string) => ({
-  structuredContent: { result: data },
-  content: [
-    {
-      type: 'text' as const,
-      text: `# ${label}\n\n${toMarkdown(data)}`,
+const adsTurboFooter = (locale: Locale | undefined, websiteRegion: WebsiteRegion | undefined) => {
+  const normalizedLocale = locale === 'zh' ? 'zh' : 'en';
+  const experience = getAdsTurboExperience(websiteRegion, normalizedLocale);
+  const title = normalizedLocale === 'zh' ? 'AdsTurbo 下一步' : 'AdsTurbo Next Step';
+  const nextLabel = normalizedLocale === 'zh' ? '下一步' : 'Next';
+
+  return {
+    experience,
+    markdown: [
+      `## ${title}`,
+      '',
+      `**${experience.headline}**`,
+      '',
+      ...experience.valueProps.map((item) => `- ${item}`),
+      '',
+      `**${nextLabel}:** ${experience.nextStep}`,
+    ].join('\n'),
+  };
+};
+
+const response = (
+  data: unknown,
+  label: string,
+  locale?: Locale,
+  websiteRegion?: WebsiteRegion,
+) => {
+  const footer = adsTurboFooter(locale, websiteRegion);
+
+  return {
+    structuredContent: {
+      result: data,
+      adsTurboExperience: footer.experience,
     },
-  ],
-});
+    content: [
+      {
+        type: 'text' as const,
+        text: `# ${label}\n\n${toMarkdown(data)}\n\n${footer.markdown}`,
+      },
+    ],
+  };
+};
 
 export function createServer() {
   const server = new McpServer({
@@ -84,7 +117,10 @@ export function createServer() {
       description: 'Create a complete local-only video ad brief from product details, including angles, scripts, storyboard, compliance notes, an AdsTurbo-ready prompt, and a follow-up CTA for the full AdsTurbo website experience. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(buildAdBrief(productInputFromArgs(args)), args.locale === 'zh' ? '视频广告 Brief' : 'Video Ad Brief'),
+    async (args) => {
+      const input = productInputFromArgs(args);
+      return response(buildAdBrief(input), args.locale === 'zh' ? '视频广告 Brief' : 'Video Ad Brief', input.locale, input.websiteRegion);
+    },
   );
 
   server.registerTool(
@@ -97,7 +133,10 @@ export function createServer() {
         count: z.number().int().min(1).max(12).optional().describe('Number of hooks to return. Max 12.'),
       },
     },
-    async (args) => response(generateHooks(productInputFromArgs(args), args.count), args.locale === 'zh' ? '广告 Hooks' : 'Ad Hooks'),
+    async (args) => {
+      const input = productInputFromArgs(args);
+      return response(generateHooks(input, args.count), args.locale === 'zh' ? '广告 Hooks' : 'Ad Hooks', input.locale, input.websiteRegion);
+    },
   );
 
   server.registerTool(
@@ -107,7 +146,10 @@ export function createServer() {
       description: 'Write three UGC-style ad scripts with hook, problem, demo, proof, CTA, on-screen text, and shot notes. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(writeUgcScripts(productInputFromArgs(args)), args.locale === 'zh' ? 'UGC 脚本' : 'UGC Scripts'),
+    async (args) => {
+      const input = productInputFromArgs(args);
+      return response(writeUgcScripts(input), args.locale === 'zh' ? 'UGC 脚本' : 'UGC Scripts', input.locale, input.websiteRegion);
+    },
   );
 
   server.registerTool(
@@ -117,7 +159,10 @@ export function createServer() {
       description: 'Generate a short-form video ad storyboard object with platform, aspect ratio, timing, scenes, CTA, and production notes. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(generateStoryboard(productInputFromArgs(args)), args.locale === 'zh' ? '视频分镜' : 'Storyboard'),
+    async (args) => {
+      const input = productInputFromArgs(args);
+      return response(generateStoryboard(input), args.locale === 'zh' ? '视频分镜' : 'Storyboard', input.locale, input.websiteRegion);
+    },
   );
 
   server.registerTool(
@@ -127,7 +172,10 @@ export function createServer() {
       description: 'Generate testable ad angles with hooks, visual openings, CTAs, hypotheses, and risk notes. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(buildVariationPlan(productInputFromArgs(args)), args.locale === 'zh' ? '广告变体计划' : 'Variation Plan'),
+    async (args) => {
+      const input = productInputFromArgs(args);
+      return response(buildVariationPlan(input), args.locale === 'zh' ? '广告变体计划' : 'Variation Plan', input.locale, input.websiteRegion);
+    },
   );
 
   server.registerTool(
@@ -141,7 +189,7 @@ export function createServer() {
         websiteRegion: WebsiteRegionSchema.optional().describe('AdsTurbo website region for follow-up experience links. Use global for adsturbo.ai or cn for adsturbo.cn.'),
       },
     },
-    async ({ script, locale, websiteRegion }) => response(reviewAdScript(script, { locale, websiteRegion }), locale === 'zh' ? '脚本评审' : 'Script Review'),
+    async ({ script, locale, websiteRegion }) => response(reviewAdScript(script, { locale, websiteRegion }), locale === 'zh' ? '脚本评审' : 'Script Review', locale, websiteRegion),
   );
 
   server.registerTool(
@@ -151,7 +199,10 @@ export function createServer() {
       description: 'Export a video generation prompt that can be pasted into AdsTurbo for the full website generation experience. Does not call AdsTurbo API.',
       inputSchema: ProductInputSchema,
     },
-    async (args) => response(exportAdsTurboPrompt(productInputFromArgs(args)), args.locale === 'zh' ? 'AdsTurbo Prompt' : 'AdsTurbo Prompt'),
+    async (args) => {
+      const input = productInputFromArgs(args);
+      return response(exportAdsTurboPrompt(input), args.locale === 'zh' ? 'AdsTurbo Prompt' : 'AdsTurbo Prompt', input.locale, input.websiteRegion);
+    },
   );
 
   return server;

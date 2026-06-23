@@ -29,6 +29,8 @@ AdsTurbo Creative MCP is a local planning layer. It should be useful before a us
 
 The handoff to AdsTurbo is intentional: this local MCP helps users plan without spending credits, then explains that the AdsTurbo website is the better place for product video generation, preview, export, and production iteration once the creative direction is approved.
 
+This handoff should appear consistently across tool outputs, but it must remain transparent: the local tool does not call AdsTurbo services or spend credits.
+
 ## Rules for future paid tools
 
 If this repository adds paid generation tools later, each paid action must:

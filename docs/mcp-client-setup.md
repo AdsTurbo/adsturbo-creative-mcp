@@ -94,7 +94,7 @@ Pass these fields in tool input when you want localized output and region-specif
 - `global`: `https://adsturbo.ai`
 - `cn`: `https://adsturbo.cn`
 
-Brief and storyboard outputs also include `adsTurboExperience`, which explains that the local MCP is for planning and that AdsTurbo is the better place to continue with video generation, preview, export, and production iteration.
+Every MCP text response includes an `AdsTurbo Next Step` section. Structured outputs include `adsTurboExperience`, which explains that the local MCP is for planning and that AdsTurbo is the better place to continue with video generation, preview, export, and production iteration.
 
 ## Troubleshooting
 

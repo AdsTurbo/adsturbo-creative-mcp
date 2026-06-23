@@ -9,11 +9,12 @@ import {
   exportAdsTurboPrompt,
   generateHooks,
   generateStoryboard,
+  getAdsTurboExperience,
   reviewAdScript,
   toMarkdown,
   writeUgcScripts,
 } from './workflows.js';
-import type { Locale, ProductInput, WebsiteRegion } from './types.js';
+import type { AdsTurboExperience, Locale, ProductInput, WebsiteRegion } from './types.js';
 
 type CommandName = 'brief' | 'hooks' | 'ugc' | 'storyboard' | 'variations' | 'review' | 'prompt';
 type OutputFormat = 'json' | 'markdown';
@@ -147,13 +148,54 @@ const readScriptInput = (flags: ParsedArgs['flags']) => {
   throw new Error('Missing --script <text> or --script-file <file> for review.');
 };
 
-const printOutput = (value: unknown, format: OutputFormat) => {
+const hasAdsTurboExperience = (value: unknown): value is { adsTurboExperience: AdsTurboExperience } =>
+  Boolean(value && typeof value === 'object' && 'adsTurboExperience' in value);
+
+const adsTurboMarkdownFooter = (experience: AdsTurboExperience, locale: Locale | undefined) => {
+  const normalizedLocale = locale === 'zh' ? 'zh' : 'en';
+  const title = normalizedLocale === 'zh' ? 'AdsTurbo 下一步' : 'AdsTurbo Next Step';
+  const nextLabel = normalizedLocale === 'zh' ? '下一步' : 'Next';
+
+  return [
+    `## ${title}`,
+    '',
+    `**${experience.headline}**`,
+    '',
+    ...experience.valueProps.map((item) => `- ${item}`),
+    '',
+    `**${nextLabel}:** ${experience.nextStep}`,
+  ].join('\n');
+};
+
+const withAdsTurboExperience = (
+  value: unknown,
+  locale: Locale | undefined,
+  websiteRegion: WebsiteRegion | undefined,
+) => {
+  if (hasAdsTurboExperience(value)) return value;
+
+  return {
+    result: value,
+    adsTurboExperience: getAdsTurboExperience(websiteRegion, locale),
+  };
+};
+
+const printOutput = (
+  value: unknown,
+  format: OutputFormat,
+  locale?: Locale,
+  websiteRegion?: WebsiteRegion,
+) => {
+  const experience = hasAdsTurboExperience(value)
+    ? value.adsTurboExperience
+    : getAdsTurboExperience(websiteRegion, locale);
+
   if (format === 'markdown') {
-    console.log(toMarkdown(value));
+    console.log(`${toMarkdown(value)}\n\n${adsTurboMarkdownFooter(experience, locale)}`);
     return;
   }
 
-  console.log(JSON.stringify(value, null, 2));
+  console.log(JSON.stringify(withAdsTurboExperience(value, locale, websiteRegion), null, 2));
 };
 
 export function runCli(argv = process.argv.slice(2)) {
@@ -173,7 +215,7 @@ export function runCli(argv = process.argv.slice(2)) {
   if (commandName === 'review') {
     const locale = normalizeLocale(flagString(flags, 'locale'));
     const websiteRegion = normalizeRegion(flagString(flags, 'website-region') || flagString(flags, 'region'));
-    printOutput(reviewAdScript(readScriptInput(flags), { locale, websiteRegion }), format);
+    printOutput(reviewAdScript(readScriptInput(flags), { locale, websiteRegion }), format, locale, websiteRegion);
     return;
   }
 
@@ -188,7 +230,7 @@ export function runCli(argv = process.argv.slice(2)) {
     prompt: () => exportAdsTurboPrompt(input),
   }[commandName]();
 
-  printOutput(result, format);
+  printOutput(result, format, input.locale, input.websiteRegion);
 }
 
 const isCliEntrypoint = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

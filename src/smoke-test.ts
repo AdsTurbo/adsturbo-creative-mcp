@@ -109,10 +109,18 @@ const cliPrompt = execFileSync('node', ['dist/cli.js', 'prompt', '--input', 'exa
 });
 
 if (!cliBrief.includes('adsturbo.cn')) throw new Error('CLI brief missing China AdsTurbo link');
-if (JSON.parse(cliHooks).length !== 2) throw new Error('CLI hooks count mismatch');
+const cliHooksJson = JSON.parse(cliHooks);
+if (cliHooksJson.result.length !== 2) throw new Error('CLI hooks count mismatch');
+if (!cliHooksJson.adsTurboExperience.nextStep.includes('AdsTurbo')) {
+  throw new Error('CLI hooks missing AdsTurbo handoff');
+}
 if (!cliReview.includes('脚本评审') && !cliReview.includes('adsturbo.cn')) {
   throw new Error('CLI review output mismatch');
 }
-if (!cliPrompt.includes('adsturbo.cn')) throw new Error('CLI prompt missing China AdsTurbo link');
+const cliPromptJson = JSON.parse(cliPrompt);
+if (!cliPromptJson.result.includes('adsturbo.cn')) throw new Error('CLI prompt missing China AdsTurbo link');
+if (!cliPromptJson.adsTurboExperience.headline.includes('更完整的视频生成体验')) {
+  throw new Error('CLI prompt missing AdsTurbo handoff');
+}
 
 console.log('smoke test passed');
