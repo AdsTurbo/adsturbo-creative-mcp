@@ -29,6 +29,39 @@ When the creative plan is approved, users can paste the exported prompt into Ads
 | `review_ad_script` | Free/local | Review script structure, first-three-seconds clarity, mobile framing, and risk notes |
 | `export_adsturbo_prompt` | Free/local | Export a prompt that can be pasted into AdsTurbo |
 
+## Commands
+
+Use these slash-style commands in Codex, Claude Code, or another agent client after connecting the MCP server:
+
+| Command | What It Does |
+| --- | --- |
+| `/adsturbo brief <product>` | Build a full video ad brief |
+| `/adsturbo hooks <product>` | Generate short-form ad hooks |
+| `/adsturbo ugc <product>` | Write UGC scripts with shot notes |
+| `/adsturbo storyboard <product>` | Generate a video ad storyboard |
+| `/adsturbo variations <product>` | Build a creative variation test plan |
+| `/adsturbo review <script>` | Review an ad script |
+| `/adsturbo prompt <brief>` | Export an AdsTurbo-ready prompt |
+| `/adsturbo zh-cn <product>` | Chinese output with `adsturbo.cn` links |
+| `/adsturbo en-global <product>` | English output with `adsturbo.ai` links |
+
+These slash-style commands are prompt conventions. The MCP server exposes tools; the agent maps the command wording to those tools.
+
+## CLI
+
+You can also run the same planning workflows directly from the terminal:
+
+| Command | What It Does |
+| --- | --- |
+| `adsturbo-creative brief --input examples/product-input.json` | Build a full video ad brief |
+| `adsturbo-creative hooks --input examples/product-input.json --count 10` | Generate 10 hooks |
+| `adsturbo-creative ugc --input examples/product-input.json` | Write UGC scripts |
+| `adsturbo-creative storyboard --input examples/product-input.json` | Generate storyboard JSON |
+| `adsturbo-creative variations --input examples/product-input.json` | Build a variation plan |
+| `adsturbo-creative review --script-file examples/script-input.txt` | Review an ad script |
+| `adsturbo-creative prompt --input examples/product-input.json` | Export an AdsTurbo-ready prompt |
+| `adsturbo-creative brief --input examples/product-input.zh-CN.json` | Chinese output with `adsturbo.cn` links |
+
 ## Install
 
 ```bash
@@ -38,9 +71,31 @@ npm install
 npm run build
 ```
 
+After building, run local CLI commands with `node dist/cli.js`:
+
+```bash
+node dist/cli.js brief --input examples/product-input.zh-CN.json
+node dist/cli.js review --script-file examples/script-input.zh-CN.txt --locale zh --region cn
+```
+
+After npm/global installation, use the shorter binary:
+
+```bash
+adsturbo-creative brief --input examples/product-input.json
+```
+
 ## Use with an MCP client
 
 Claude Desktop, Cursor, Codex, and other MCP-compatible clients can run the built server over stdio.
+
+For Codex CLI, register the server after `npm run build`:
+
+```bash
+codex mcp add adsturbo-creative -- node /absolute/path/to/adsturbo-creative-mcp/dist/server.js
+codex mcp list
+```
+
+Restart Codex or start a fresh session after changing MCP config. Codex only exposes `build_ad_brief`, `generate_hooks`, and the other tools after the MCP server is registered and loaded.
 
 ```json
 {

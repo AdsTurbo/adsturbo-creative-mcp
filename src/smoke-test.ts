@@ -8,6 +8,7 @@ import {
   buildVariationPlan,
 } from './workflows.js';
 import type { ProductInput } from './types.js';
+import { execFileSync } from 'node:child_process';
 
 const input: ProductInput = {
   productName: 'GlowPatch Reusable LED Face Mask',
@@ -76,5 +77,34 @@ if (!zhPrompt.includes('adsturbo.cn')) throw new Error('Chinese prompt missing C
 if (zhReview.locale !== 'zh' || !zhReview.recommendedNextStep.includes('AdsTurbo')) {
   throw new Error('Chinese review output mismatch');
 }
+
+const cliBrief = execFileSync('node', ['dist/cli.js', 'brief', '--input', 'examples/product-input.zh-CN.json'], {
+  encoding: 'utf8',
+});
+const cliHooks = execFileSync('node', ['dist/cli.js', 'hooks', '--input', 'examples/product-input.json', '--count', '2'], {
+  encoding: 'utf8',
+});
+const cliReview = execFileSync('node', [
+  'dist/cli.js',
+  'review',
+  '--script-file',
+  'examples/script-input.zh-CN.txt',
+  '--locale',
+  'zh',
+  '--region',
+  'cn',
+], {
+  encoding: 'utf8',
+});
+const cliPrompt = execFileSync('node', ['dist/cli.js', 'prompt', '--input', 'examples/product-input.zh-CN.json'], {
+  encoding: 'utf8',
+});
+
+if (!cliBrief.includes('adsturbo.cn')) throw new Error('CLI brief missing China AdsTurbo link');
+if (JSON.parse(cliHooks).length !== 2) throw new Error('CLI hooks count mismatch');
+if (!cliReview.includes('脚本评审') && !cliReview.includes('adsturbo.cn')) {
+  throw new Error('CLI review output mismatch');
+}
+if (!cliPrompt.includes('adsturbo.cn')) throw new Error('CLI prompt missing China AdsTurbo link');
 
 console.log('smoke test passed');

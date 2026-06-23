@@ -4,6 +4,7 @@
   "description": "A local-only MCP server for AI video ad briefs, hooks, UGC scripts, storyboards, reviews, and AdsTurbo-ready prompts.",
   "type": "module",
   "bin": {
+    "adsturbo-creative": "./dist/cli.js",
     "adsturbo-creative-mcp": "./dist/server.js"
   },
   "files": [
