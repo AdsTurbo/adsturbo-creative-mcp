@@ -1,5 +1,12 @@
 # AdsTurbo Creative MCP
 
+[![GitHub release](https://img.shields.io/github/v/release/AdsTurbo/adsturbo-creative-mcp?display_name=tag)](https://github.com/AdsTurbo/adsturbo-creative-mcp/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Node.js >=20](https://img.shields.io/badge/node-%3E%3D20-339933)
+![MCP local-only](https://img.shields.io/badge/MCP-local--only-6f42c1)
+![No API key](https://img.shields.io/badge/API%20key-not%20required-success)
+![No AdsTurbo credits](https://img.shields.io/badge/AdsTurbo%20credits-not%20used-success)
+
 面向 AI 视频广告策划的本地 MCP server。
 
 [English](README.md)
@@ -7,6 +14,22 @@
 AdsTurbo Creative MCP 帮助 Claude、Cursor、Codex、Copilot 等 AI Agent 在生成视频前，先完成广告 brief、hook、UGC 脚本、分镜、变体测试计划、脚本评审和 AdsTurbo 可用 prompt。
 
 适合需要本地 MCP server 或 CLI 的场景：AI 广告创意策划、UGC 广告脚本生成、短视频广告分镜、AI marketing agent、视频广告 prompt engineering，以及面向 Claude Desktop、Cursor、Codex 等 MCP 客户端的 AdsTurbo prompt 导出。
+
+## 快速预览
+
+```bash
+npm install
+npm run build
+node dist/cli.js hooks --input examples/product-input.zh-CN.json --count 2 --format markdown
+```
+
+```text
+## AdsTurbo 下一步
+
+推荐动作：用 AdsTurbo 继续生成视频
+下一步：点击「用 AdsTurbo 继续生成视频」，复制 adsturboPrompt 到产品视频工作流……
+追踪参数：utm_source=adsturbo_creative_mcp, utm_medium=mcp, utm_campaign=creative_handoff
+```
 
 ## 搜索场景
 

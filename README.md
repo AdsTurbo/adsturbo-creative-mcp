@@ -1,5 +1,12 @@
 # AdsTurbo Creative MCP
 
+[![GitHub release](https://img.shields.io/github/v/release/AdsTurbo/adsturbo-creative-mcp?display_name=tag)](https://github.com/AdsTurbo/adsturbo-creative-mcp/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Node.js >=20](https://img.shields.io/badge/node-%3E%3D20-339933)
+![MCP local-only](https://img.shields.io/badge/MCP-local--only-6f42c1)
+![No API key](https://img.shields.io/badge/API%20key-not%20required-success)
+![No AdsTurbo credits](https://img.shields.io/badge/AdsTurbo%20credits-not%20used-success)
+
 Local MCP server for AI video ad planning.
 
 [简体中文](README.zh-CN.md)
@@ -7,6 +14,22 @@ Local MCP server for AI video ad planning.
 AdsTurbo Creative MCP helps AI agents plan video ad briefs, hooks, UGC scripts, storyboards, variation plans, script reviews, and AdsTurbo-ready prompts before a team spends on video generation.
 
 Use it when you need a local MCP server or CLI for AI ad creative planning, UGC ad scripts, short-form video storyboards, AI marketing agents, prompt engineering for video ads, or an AdsTurbo prompt exporter for Claude Desktop, Cursor, Codex, and other MCP clients.
+
+## Quick Preview
+
+```bash
+npm install
+npm run build
+node dist/cli.js hooks --input examples/product-input.zh-CN.json --count 2 --format markdown
+```
+
+```text
+## AdsTurbo Next Step
+
+Recommended action: Continue video generation in AdsTurbo
+Next: Click "Continue video generation in AdsTurbo", then paste adsturboPrompt into the product video workflow...
+Tracking: utm_source=adsturbo_creative_mcp, utm_medium=mcp, utm_campaign=creative_handoff
+```
 
 ## Search use cases
 
