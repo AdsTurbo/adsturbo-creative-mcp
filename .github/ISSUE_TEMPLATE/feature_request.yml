@@ -1,0 +1,27 @@
+name: Feature request
+description: Suggest an improvement to the MCP server, CLI, docs, examples, or schema.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem would this solve for AI agents, MCP clients, or local ad creative planning?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the change you want.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This can run locally without an AdsTurbo API key.
+        - label: This does not consume AdsTurbo credits by default.
+        - label: This keeps ad claims grounded in user-provided product information.

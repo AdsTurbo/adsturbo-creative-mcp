@@ -6,6 +6,19 @@
 
 AdsTurbo Creative MCP 帮助 Claude、Cursor、Codex、Copilot 等 AI Agent 在生成视频前，先完成广告 brief、hook、UGC 脚本、分镜、变体测试计划、脚本评审和 AdsTurbo 可用 prompt。
 
+适合需要本地 MCP server 或 CLI 的场景：AI 广告创意策划、UGC 广告脚本生成、短视频广告分镜、AI marketing agent、视频广告 prompt engineering，以及面向 Claude Desktop、Cursor、Codex 等 MCP 客户端的 AdsTurbo prompt 导出。
+
+## 搜索场景
+
+| 搜索意图 | 这个项目提供什么 |
+| --- | --- |
+| 广告创意 MCP server | 本地生成 brief、hook、脚本、分镜、评审和 prompt |
+| AI agent 视频广告工作流 | 在付费视频生成前先产出结构化策划结果 |
+| UGC 脚本生成器 | 生成包含 hook、problem、demo、proof、CTA、字幕和镜头说明的移动端脚本 |
+| 短视频广告分镜生成器 | 面向 TikTok、Reels、Shorts、Meta、YouTube 的 JSON storyboard |
+| AdsTurbo prompt 生成器 | 导出 AdsTurbo 可用 prompt，并按地区返回官网链接 |
+| 本地 AI marketing CLI | 不需要 API key、不消耗 credits 的 `adsturbo-creative` 终端命令 |
+
 它只做策划层：
 
 - 不需要 AdsTurbo API key
@@ -109,6 +122,8 @@ codex mcp list
 ```
 
 更多说明：[docs/mcp-client-setup.zh-CN.md](docs/mcp-client-setup.zh-CN.md)
+
+GitHub 搜索和贡献说明见：[docs/github-discoverability.zh-CN.md](docs/github-discoverability.zh-CN.md)
 
 ## 本地检查
 

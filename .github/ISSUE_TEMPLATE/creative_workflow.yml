@@ -1,0 +1,42 @@
+name: Creative workflow request
+description: Suggest a new ad brief, UGC script, storyboard, or AI marketing agent workflow.
+title: "[Workflow]: "
+labels: ["enhancement", "creative-workflow"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for local planning workflows. Paid AdsTurbo generation API calls are outside the default scope.
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What AI video ad planning workflow should this MCP server or CLI support?
+      placeholder: "Example: generate a UGC script and storyboard for a SaaS free-trial ad."
+    validations:
+      required: true
+  - type: dropdown
+    id: output
+    attributes:
+      label: Output type
+      options:
+        - Ad brief
+        - Hooks
+        - UGC script
+        - Storyboard
+        - Variation plan
+        - Script review
+        - AdsTurbo prompt
+        - MCP client setup
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Ad platform
+      placeholder: "TikTok, Reels, Shorts, Meta, YouTube"
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints or safety notes
+      description: Include forbidden claims, regulated category notes, or localization requirements.

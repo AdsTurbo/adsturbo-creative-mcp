@@ -6,6 +6,19 @@ Local MCP server for AI video ad planning.
 
 AdsTurbo Creative MCP helps AI agents plan video ad briefs, hooks, UGC scripts, storyboards, variation plans, script reviews, and AdsTurbo-ready prompts before a team spends on video generation.
 
+Use it when you need a local MCP server or CLI for AI ad creative planning, UGC ad scripts, short-form video storyboards, AI marketing agents, prompt engineering for video ads, or an AdsTurbo prompt exporter for Claude Desktop, Cursor, Codex, and other MCP clients.
+
+## Search use cases
+
+| Search Intent | What This Project Provides |
+| --- | --- |
+| MCP server for ad creative planning | Local tools for briefs, hooks, scripts, storyboards, reviews, and prompts |
+| AI agent workflow for video ads | Structured planning outputs before paid video generation |
+| UGC script generator | Mobile-first UGC scripts with hook, problem, demo, proof, CTA, captions, and shot notes |
+| Video ad storyboard generator | JSON storyboard objects for TikTok, Reels, Shorts, Meta, and YouTube |
+| AdsTurbo prompt generator | AdsTurbo-ready prompts with localized website links |
+| Local AI marketing CLI | `adsturbo-creative` terminal commands with no API key or credits |
+
 It is a planning layer only:
 
 - No AdsTurbo API key required
@@ -109,6 +122,8 @@ Restart Codex or start a fresh session after changing MCP config. Codex only exp
 ```
 
 More setup notes: [docs/mcp-client-setup.md](docs/mcp-client-setup.md)
+
+For GitHub search and contribution guidance, see [docs/github-discoverability.md](docs/github-discoverability.md).
 
 ## Inspect locally
 
