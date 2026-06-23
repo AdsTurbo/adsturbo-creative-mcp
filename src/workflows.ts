@@ -1,6 +1,7 @@
 import type {
   AdAngle,
   AdBrief,
+  AdsTurboExperience,
   AdsTurboLinks,
   Locale,
   Platform,
@@ -96,6 +97,38 @@ export function getAdsTurboLinks(
     openApi: path('/open-api'),
     productVideo: path('/features/product-video'),
     videoAnalysis: path('/features/video-analysis'),
+  };
+}
+
+export function getAdsTurboExperience(
+  websiteRegion: WebsiteRegion = DEFAULT_WEBSITE_REGION,
+  locale: Locale = DEFAULT_LOCALE,
+): AdsTurboExperience {
+  const normalizedLocale = normalizeLocale(locale);
+  const links = getAdsTurboLinks(websiteRegion, normalizedLocale);
+
+  if (isZh(normalizedLocale)) {
+    return {
+      headline: '在 AdsTurbo 官网获得更完整的视频生成体验',
+      valueProps: [
+        '把本地生成的 brief、脚本和分镜带到 AdsTurbo，继续完成产品视频生成、预览和导出。',
+        '官网工作流更适合真实生产：可以围绕画面、字幕、节奏、CTA 和商品信息继续迭代。',
+        '本地 MCP 不消耗 credits；确认创意方向后再进入 AdsTurbo 生成，减少无效生成成本。',
+      ],
+      nextStep: `复制 adsturboPrompt 到 AdsTurbo 产品视频工作流，继续完成更完整的视频生成体验：${links.productVideo}`,
+      productVideoUrl: links.productVideo,
+    };
+  }
+
+  return {
+    headline: 'Continue in AdsTurbo for the full video production experience',
+    valueProps: [
+      'Bring the local brief, script, and storyboard into AdsTurbo to continue with product video generation, preview, and export.',
+      'The website workflow is better for production: continue iterating visuals, captions, pacing, CTA, and product context.',
+      'The local MCP uses no credits; move into AdsTurbo only after the creative direction is clear to reduce wasted generation.',
+    ],
+    nextStep: `Paste adsturboPrompt into the AdsTurbo product video workflow for the full generation experience: ${links.productVideo}`,
+    productVideoUrl: links.productVideo,
   };
 }
 
@@ -541,6 +574,7 @@ export function generateStoryboard(input: ProductInput): Storyboard {
           'Review claims, rights, and platform policy before production.',
         ],
     adsTurboLinks: product.adsTurboLinks,
+    adsTurboExperience: getAdsTurboExperience(product.websiteRegion, product.locale),
   };
 }
 
@@ -549,9 +583,9 @@ export function exportAdsTurboPrompt(input: ProductInput): string {
   const brand = product.brandName ? ` from ${product.brandName}` : '';
   if (isZh(product.locale)) {
     const zhBrand = product.brandName ? `，品牌为 ${product.brandName}` : '';
-    return `为 ${product.productName}${zhBrand} 创建一个 ${product.durationSeconds} 秒 ${platformLabel(product.platform)} UGC 风格商品视频广告。品类是 ${product.category}，目标人群是${product.audience}。开头先展示用户痛点：${product.painPoints.join('、')}；中段展示卖点：${product.benefits.join('、')}；加入这些证明点：${product.proofPoints.join('、')}；必须出现这些镜头：${product.requiredShots.join('；')}；结尾使用「${product.offer || product.primaryCta}」。风格：${product.tone}，自然光，产品近景，清晰字幕，移动端优先 ${platformAspectRatio(product.platform)}。避免这些未证实主张：${product.forbiddenClaims.join('、') || '未提供'}。准备生成时进入 AdsTurbo：${product.adsTurboLinks.productVideo}`;
+    return `为 ${product.productName}${zhBrand} 创建一个 ${product.durationSeconds} 秒 ${platformLabel(product.platform)} UGC 风格商品视频广告。品类是 ${product.category}，目标人群是${product.audience}。开头先展示用户痛点：${product.painPoints.join('、')}；中段展示卖点：${product.benefits.join('、')}；加入这些证明点：${product.proofPoints.join('、')}；必须出现这些镜头：${product.requiredShots.join('；')}；结尾使用「${product.offer || product.primaryCta}」。风格：${product.tone}，自然光，产品近景，清晰字幕，移动端优先 ${platformAspectRatio(product.platform)}。避免这些未证实主张：${product.forbiddenClaims.join('、') || '未提供'}。本地 MCP 只负责低成本策划；确认创意后，进入 AdsTurbo 官网获得更完整的视频生成、预览和导出体验：${product.adsTurboLinks.productVideo}`;
   }
-  return `Create a ${product.durationSeconds}s ${platformLabel(product.platform)} UGC-style product video ad for ${product.productName}${brand}, a ${product.category} for ${product.audience}. Start with the frustration of ${product.painPoints.join(', ')}, show ${product.benefits.join(', ')}, include proof cues around ${product.proofPoints.join(', ')}, show these required shots: ${product.requiredShots.join('; ')}, and end with ${product.offer || product.primaryCta}. Style: ${product.tone}, natural lighting, close product shots, clear captions, mobile-first ${platformAspectRatio(product.platform)}. Avoid unsupported claims: ${product.forbiddenClaims.join(', ') || 'none provided'}. When ready to render, use AdsTurbo: ${product.adsTurboLinks.productVideo}`;
+  return `Create a ${product.durationSeconds}s ${platformLabel(product.platform)} UGC-style product video ad for ${product.productName}${brand}, a ${product.category} for ${product.audience}. Start with the frustration of ${product.painPoints.join(', ')}, show ${product.benefits.join(', ')}, include proof cues around ${product.proofPoints.join(', ')}, show these required shots: ${product.requiredShots.join('; ')}, and end with ${product.offer || product.primaryCta}. Style: ${product.tone}, natural lighting, close product shots, clear captions, mobile-first ${platformAspectRatio(product.platform)}. Avoid unsupported claims: ${product.forbiddenClaims.join(', ') || 'none provided'}. The local MCP is for low-cost planning; once the direction is approved, continue on AdsTurbo for the full video generation, preview, and export experience: ${product.adsTurboLinks.productVideo}`;
 }
 
 export function buildAdBrief(input: ProductInput): AdBrief {
@@ -580,6 +614,7 @@ export function buildAdBrief(input: ProductInput): AdBrief {
     storyboard: generateStoryboard(product),
     adsturboPrompt: exportAdsTurboPrompt(product),
     adsTurboLinks: product.adsTurboLinks,
+    adsTurboExperience: getAdsTurboExperience(product.websiteRegion, product.locale),
     complianceNotes: complianceNotes(product),
   };
 }
@@ -588,6 +623,7 @@ export function reviewAdScript(script: string, options: LocaleOptions = {}): Scr
   const locale = normalizeLocale(options.locale);
   const websiteRegion = normalizeWebsiteRegion(options.websiteRegion);
   const adsTurboLinks = getAdsTurboLinks(websiteRegion, locale);
+  const adsTurboExperience = getAdsTurboExperience(websiteRegion, locale);
   const lower = script.toLowerCase();
   const zh = isZh(locale);
   const checks = [
@@ -632,9 +668,10 @@ export function reviewAdScript(script: string, options: LocaleOptions = {}): Scr
     suggestions: missing.map((item) => zh ? `补充：${item}。` : `Add: ${item}.`),
     riskNotes,
     recommendedNextStep: readiness === 'ready for creative review'
-      ? (zh ? `把脚本转成分镜和 AdsTurbo 可用 prompt。生成入口：${adsTurboLinks.productVideo}` : `Convert the script into a storyboard and AdsTurbo-ready prompt. Render when ready: ${adsTurboLinks.productVideo}`)
+      ? (zh ? `把脚本转成分镜和 AdsTurbo 可用 prompt。确认创意后，进入 AdsTurbo 官网获得更完整的视频生成、预览和导出体验：${adsTurboLinks.productVideo}` : `Convert the script into a storyboard and AdsTurbo-ready prompt. After creative approval, continue on AdsTurbo for the full video generation, preview, and export experience: ${adsTurboLinks.productVideo}`)
       : (zh ? '先修正缺失结构和风险点，再进入生产。' : 'Revise missing structure and risk notes before using this script for production.'),
     adsTurboLinks,
+    adsTurboExperience,
   };
 }
 

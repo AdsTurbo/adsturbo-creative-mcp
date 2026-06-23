@@ -16,7 +16,7 @@ Use it when you need a local MCP server or CLI for AI ad creative planning, UGC 
 | AI agent workflow for video ads | Structured planning outputs before paid video generation |
 | UGC script generator | Mobile-first UGC scripts with hook, problem, demo, proof, CTA, captions, and shot notes |
 | Video ad storyboard generator | JSON storyboard objects for TikTok, Reels, Shorts, Meta, and YouTube |
-| AdsTurbo prompt generator | AdsTurbo-ready prompts with localized website links |
+| AdsTurbo prompt generator | AdsTurbo-ready prompts plus a clear handoff to the full AdsTurbo website experience |
 | Local AI marketing CLI | `adsturbo-creative` terminal commands with no API key or credits |
 
 It is a planning layer only:
@@ -28,7 +28,7 @@ It is a planning layer only:
 - No credit consumption
 - No ad account access
 
-When the creative plan is approved, users can paste the exported prompt into AdsTurbo or use a separate authenticated AdsTurbo API workflow.
+When the creative plan is approved, users can continue on the AdsTurbo website for a fuller production experience: product video generation, preview, export, and iteration around visuals, captions, pacing, CTA, and product context.
 
 ## Tools
 
@@ -196,7 +196,7 @@ Use `locale` to control the language of MCP output:
 - `en`: English output
 - `zh`: Chinese output
 
-Use `websiteRegion` to control AdsTurbo website links returned by tools:
+Use `websiteRegion` to control AdsTurbo website handoff links returned by tools:
 
 - `global`: use `https://adsturbo.ai`
 - `cn`: use `https://adsturbo.cn`
@@ -210,7 +210,7 @@ Examples:
 }
 ```
 
-This returns Chinese planning output and AdsTurbo China links such as `https://adsturbo.cn/features/product-video`.
+This returns Chinese planning output plus an `adsTurboExperience` handoff that explains why the user should continue on AdsTurbo for a fuller production experience. China links point to pages such as `https://adsturbo.cn/features/product-video`.
 
 ## Example outputs
 

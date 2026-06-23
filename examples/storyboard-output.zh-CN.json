@@ -77,5 +77,15 @@
     "openApi": "https://adsturbo.cn/open-api",
     "productVideo": "https://adsturbo.cn/features/product-video",
     "videoAnalysis": "https://adsturbo.cn/features/video-analysis"
+  },
+  "adsTurboExperience": {
+    "headline": "在 AdsTurbo 官网获得更完整的视频生成体验",
+    "valueProps": [
+      "把本地生成的 brief、脚本和分镜带到 AdsTurbo，继续完成产品视频生成、预览和导出。",
+      "官网工作流更适合真实生产：可以围绕画面、字幕、节奏、CTA 和商品信息继续迭代。",
+      "本地 MCP 不消耗 credits；确认创意方向后再进入 AdsTurbo 生成，减少无效生成成本。"
+    ],
+    "nextStep": "复制 adsturboPrompt 到 AdsTurbo 产品视频工作流，继续完成更完整的视频生成体验：https://adsturbo.cn/features/product-video",
+    "productVideoUrl": "https://adsturbo.cn/features/product-video"
   }
 }

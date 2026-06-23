@@ -65,6 +65,9 @@ if (scripts.length !== 3) throw new Error('script count mismatch');
 if (storyboard.scenes.length !== 5) throw new Error('storyboard count mismatch');
 if (storyboard.locale !== 'en') throw new Error('storyboard locale mismatch');
 if (storyboard.aspectRatio !== '9:16') throw new Error('storyboard aspect ratio mismatch');
+if (!brief.adsTurboExperience.nextStep.includes('full generation experience')) {
+  throw new Error('brief missing AdsTurbo experience CTA');
+}
 if (variations.length < 5) throw new Error('variation plan too short');
 if (!scripts[0].onScreenText.length) throw new Error('script missing on-screen text');
 if (!prompt.includes('mobile-first 9:16')) throw new Error('prompt missing format guidance');
@@ -72,8 +75,13 @@ if (review.score < 60) throw new Error('review score unexpectedly low');
 if (!review.checks.length) throw new Error('review checks missing');
 if (zhBrief.locale !== 'zh') throw new Error('Chinese brief locale mismatch');
 if (!zhBrief.adsTurboLinks.productVideo.includes('adsturbo.cn')) throw new Error('China AdsTurbo link mismatch');
+if (!zhBrief.adsTurboExperience.headline.includes('更完整的视频生成体验')) {
+  throw new Error('Chinese brief missing AdsTurbo experience CTA');
+}
 if (!zhHooks[0].includes('如果')) throw new Error('Chinese hook missing localized copy');
-if (!zhPrompt.includes('adsturbo.cn')) throw new Error('Chinese prompt missing China website link');
+if (!zhPrompt.includes('更完整的视频生成') || !zhPrompt.includes('adsturbo.cn')) {
+  throw new Error('Chinese prompt missing China website experience CTA');
+}
 if (zhReview.locale !== 'zh' || !zhReview.recommendedNextStep.includes('AdsTurbo')) {
   throw new Error('Chinese review output mismatch');
 }

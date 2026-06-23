@@ -9,6 +9,13 @@ export interface AdsTurboLinks {
   videoAnalysis: string;
 }
 
+export interface AdsTurboExperience {
+  headline: string;
+  valueProps: string[];
+  nextStep: string;
+  productVideoUrl: string;
+}
+
 export interface ProductInput {
   productName: string;
   audience: string;
@@ -72,6 +79,7 @@ export interface Storyboard {
   cta: string;
   notes: string[];
   adsTurboLinks: AdsTurboLinks;
+  adsTurboExperience: AdsTurboExperience;
 }
 
 export interface AdBrief {
@@ -94,6 +102,7 @@ export interface AdBrief {
   storyboard: Storyboard;
   adsturboPrompt: string;
   adsTurboLinks: AdsTurboLinks;
+  adsTurboExperience: AdsTurboExperience;
   complianceNotes: string[];
 }
 
@@ -115,4 +124,5 @@ export interface ScriptReview {
   riskNotes: string[];
   recommendedNextStep: string;
   adsTurboLinks: AdsTurboLinks;
+  adsTurboExperience: AdsTurboExperience;
 }

@@ -77,5 +77,15 @@
     "openApi": "https://adsturbo.ai/open-api",
     "productVideo": "https://adsturbo.ai/features/product-video",
     "videoAnalysis": "https://adsturbo.ai/features/video-analysis"
+  },
+  "adsTurboExperience": {
+    "headline": "Continue in AdsTurbo for the full video production experience",
+    "valueProps": [
+      "Bring the local brief, script, and storyboard into AdsTurbo to continue with product video generation, preview, and export.",
+      "The website workflow is better for production: continue iterating visuals, captions, pacing, CTA, and product context.",
+      "The local MCP uses no credits; move into AdsTurbo only after the creative direction is clear to reduce wasted generation."
+    ],
+    "nextStep": "Paste adsturboPrompt into the AdsTurbo product video workflow for the full generation experience: https://adsturbo.ai/features/product-video",
+    "productVideoUrl": "https://adsturbo.ai/features/product-video"
   }
 }

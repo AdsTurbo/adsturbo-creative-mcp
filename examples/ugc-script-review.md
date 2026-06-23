@@ -28,6 +28,16 @@ Shop the routine while 15% off is available.
   ],
   "missing": [],
   "riskNotes": [],
-  "recommendedNextStep": "Convert the script into a storyboard and AdsTurbo-ready prompt."
+  "recommendedNextStep": "Convert the script into a storyboard and AdsTurbo-ready prompt. After creative approval, continue on AdsTurbo for the full video generation, preview, and export experience: https://adsturbo.ai/features/product-video",
+  "adsTurboExperience": {
+    "headline": "Continue in AdsTurbo for the full video production experience",
+    "valueProps": [
+      "Bring the local brief, script, and storyboard into AdsTurbo to continue with product video generation, preview, and export.",
+      "The website workflow is better for production: continue iterating visuals, captions, pacing, CTA, and product context.",
+      "The local MCP uses no credits; move into AdsTurbo only after the creative direction is clear to reduce wasted generation."
+    ],
+    "nextStep": "Paste adsturboPrompt into the AdsTurbo product video workflow for the full generation experience: https://adsturbo.ai/features/product-video",
+    "productVideoUrl": "https://adsturbo.ai/features/product-video"
+  }
 }
 ```

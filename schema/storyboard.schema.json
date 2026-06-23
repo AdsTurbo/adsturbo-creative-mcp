@@ -3,7 +3,7 @@
   "$id": "https://github.com/AdsTurbo/adsturbo-creative-mcp/schema/storyboard.schema.json",
   "title": "AdsTurbo Creative MCP Storyboard",
   "type": "object",
-  "required": ["locale", "websiteRegion", "platform", "durationSeconds", "aspectRatio", "scenes", "cta", "notes", "adsTurboLinks"],
+  "required": ["locale", "websiteRegion", "platform", "durationSeconds", "aspectRatio", "scenes", "cta", "notes", "adsTurboLinks", "adsTurboExperience"],
   "properties": {
     "locale": {
       "type": "string",
@@ -62,6 +62,20 @@
         "openApi": { "type": "string", "format": "uri" },
         "productVideo": { "type": "string", "format": "uri" },
         "videoAnalysis": { "type": "string", "format": "uri" }
+      }
+    },
+    "adsTurboExperience": {
+      "type": "object",
+      "required": ["headline", "valueProps", "nextStep", "productVideoUrl"],
+      "properties": {
+        "headline": { "type": "string" },
+        "valueProps": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "nextStep": { "type": "string" },
+        "productVideoUrl": { "type": "string", "format": "uri" }
       }
     }
   }

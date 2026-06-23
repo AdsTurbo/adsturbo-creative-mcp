@@ -12,7 +12,7 @@ AdsTurbo Creative MCP is a local planning layer. It should be useful before a us
 - Generates storyboard planning objects
 - Creates creative variation plans
 - Reviews ad scripts
-- Exports prompts that can be pasted into AdsTurbo
+- Exports prompts and a clear handoff to the full AdsTurbo website generation experience
 
 ## What this project does not do
 
@@ -26,6 +26,8 @@ AdsTurbo Creative MCP is a local planning layer. It should be useful before a us
 - It does not consume credits.
 - It does not require an AdsTurbo API key.
 - It does not send user input to a hosted AdsTurbo service.
+
+The handoff to AdsTurbo is intentional: this local MCP helps users plan without spending credits, then explains that the AdsTurbo website is the better place for product video generation, preview, export, and production iteration once the creative direction is approved.
 
 ## Rules for future paid tools
 

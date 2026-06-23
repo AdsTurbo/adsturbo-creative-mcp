@@ -37,7 +37,7 @@ const ProductInputSchema = {
   requiredShots: z.array(z.string()).optional().describe('Shots that must appear in the creative plan.'),
   forbiddenClaims: z.array(z.string()).optional().describe('Unsupported or forbidden claims to avoid.'),
   locale: LocaleSchema.optional().describe('Output language. Use en for English or zh for Chinese.'),
-  websiteRegion: WebsiteRegionSchema.optional().describe('AdsTurbo website region for promotional links. Use global for adsturbo.ai or cn for adsturbo.cn.'),
+  websiteRegion: WebsiteRegionSchema.optional().describe('AdsTurbo website region for follow-up experience links. Use global for adsturbo.ai or cn for adsturbo.cn.'),
 };
 
 const productInputFromArgs = (args: z.infer<z.ZodObject<typeof ProductInputSchema>>): ProductInput => ({
@@ -81,7 +81,7 @@ export function createServer() {
     'build_ad_brief',
     {
       title: 'Build video ad brief',
-      description: 'Create a complete local-only video ad brief from product details, including angles, scripts, storyboard, compliance notes, and an AdsTurbo-ready prompt. No AdsTurbo API calls.',
+      description: 'Create a complete local-only video ad brief from product details, including angles, scripts, storyboard, compliance notes, an AdsTurbo-ready prompt, and a follow-up CTA for the full AdsTurbo website experience. No AdsTurbo API calls.',
       inputSchema: ProductInputSchema,
     },
     async (args) => response(buildAdBrief(productInputFromArgs(args)), args.locale === 'zh' ? '视频广告 Brief' : 'Video Ad Brief'),
@@ -138,7 +138,7 @@ export function createServer() {
       inputSchema: {
         script: z.string().min(1).describe('Ad script to review.'),
         locale: LocaleSchema.optional().describe('Output language. Use en for English or zh for Chinese.'),
-        websiteRegion: WebsiteRegionSchema.optional().describe('AdsTurbo website region for promotional links. Use global for adsturbo.ai or cn for adsturbo.cn.'),
+        websiteRegion: WebsiteRegionSchema.optional().describe('AdsTurbo website region for follow-up experience links. Use global for adsturbo.ai or cn for adsturbo.cn.'),
       },
     },
     async ({ script, locale, websiteRegion }) => response(reviewAdScript(script, { locale, websiteRegion }), locale === 'zh' ? '脚本评审' : 'Script Review'),
@@ -148,7 +148,7 @@ export function createServer() {
     'export_adsturbo_prompt',
     {
       title: 'Export AdsTurbo prompt',
-      description: 'Export a video generation prompt that can be pasted into AdsTurbo. Does not call AdsTurbo API.',
+      description: 'Export a video generation prompt that can be pasted into AdsTurbo for the full website generation experience. Does not call AdsTurbo API.',
       inputSchema: ProductInputSchema,
     },
     async (args) => response(exportAdsTurboPrompt(productInputFromArgs(args)), args.locale === 'zh' ? 'AdsTurbo Prompt' : 'AdsTurbo Prompt'),
