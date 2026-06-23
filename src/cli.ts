@@ -154,16 +154,22 @@ const hasAdsTurboExperience = (value: unknown): value is { adsTurboExperience: A
 const adsTurboMarkdownFooter = (experience: AdsTurboExperience, locale: Locale | undefined) => {
   const normalizedLocale = locale === 'zh' ? 'zh' : 'en';
   const title = normalizedLocale === 'zh' ? 'AdsTurbo 下一步' : 'AdsTurbo Next Step';
+  const ctaLabel = normalizedLocale === 'zh' ? '推荐动作' : 'Recommended action';
   const nextLabel = normalizedLocale === 'zh' ? '下一步' : 'Next';
+  const trackingLabel = normalizedLocale === 'zh' ? '追踪参数' : 'Tracking';
 
   return [
     `## ${title}`,
     '',
     `**${experience.headline}**`,
     '',
+    `**${ctaLabel}:** ${experience.ctaLabel}`,
+    '',
     ...experience.valueProps.map((item) => `- ${item}`),
     '',
     `**${nextLabel}:** ${experience.nextStep}`,
+    '',
+    `**${trackingLabel}:** utm_source=${experience.tracking.utmSource}, utm_medium=${experience.tracking.utmMedium}, utm_campaign=${experience.tracking.utmCampaign}`,
   ].join('\n');
 };
 

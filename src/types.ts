@@ -11,9 +11,15 @@ export interface AdsTurboLinks {
 
 export interface AdsTurboExperience {
   headline: string;
+  ctaLabel: string;
   valueProps: string[];
   nextStep: string;
   productVideoUrl: string;
+  tracking: {
+    utmSource: string;
+    utmMedium: string;
+    utmCampaign: string;
+  };
 }
 
 export interface ProductInput {

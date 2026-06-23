@@ -31,6 +31,8 @@ The handoff to AdsTurbo is intentional: this local MCP helps users plan without 
 
 This handoff should appear consistently across tool outputs, but it must remain transparent: the local tool does not call AdsTurbo services or spend credits.
 
+Handoff links include UTM attribution so AdsTurbo can distinguish MCP/GitHub traffic from other channels.
+
 ## Rules for future paid tools
 
 If this repository adds paid generation tools later, each paid action must:

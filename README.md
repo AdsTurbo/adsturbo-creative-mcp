@@ -75,7 +75,7 @@ You can also run the same planning workflows directly from the terminal:
 | `adsturbo-creative prompt --input examples/product-input.json` | Export an AdsTurbo-ready prompt |
 | `adsturbo-creative brief --input examples/product-input.zh-CN.json` | Chinese output with `adsturbo.cn` links |
 
-CLI JSON responses include `adsTurboExperience` whenever the command output does not already contain it. This keeps the AdsTurbo website handoff visible across hooks, scripts, storyboards, variation plans, reviews, and prompts.
+CLI JSON responses include `adsTurboExperience` whenever the command output does not already contain it. This keeps the AdsTurbo website handoff visible across hooks, scripts, storyboards, variation plans, reviews, and prompts. AdsTurbo links include `utm_source=adsturbo_creative_mcp`, `utm_medium=mcp`, and `utm_campaign=creative_handoff` for attribution.
 
 ## Install
 
@@ -212,7 +212,7 @@ Examples:
 }
 ```
 
-Every MCP text response also includes an `AdsTurbo Next Step` section. Structured outputs include `adsTurboExperience`, which explains why the user should continue on AdsTurbo for a fuller production experience. China links point to pages such as `https://adsturbo.cn/features/product-video`.
+Every MCP text response also includes an `AdsTurbo Next Step` section. Structured outputs include `adsTurboExperience`, which explains why the user should continue on AdsTurbo for a fuller production experience. China links point to pages such as `https://adsturbo.cn/features/product-video?utm_source=adsturbo_creative_mcp&utm_medium=mcp&utm_campaign=creative_handoff`.
 
 ## Example outputs
 

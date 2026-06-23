@@ -60,12 +60,18 @@ const zhReview = reviewAdScript('前 3 秒先展示护肤步骤太多。然后�
 
 if (!brief.adsturboPrompt.includes(input.productName)) throw new Error('brief prompt missing product name');
 if (!brief.adsTurboLinks.productVideo.includes('adsturbo.ai')) throw new Error('global AdsTurbo link mismatch');
+if (!brief.adsTurboLinks.productVideo.includes('utm_source=adsturbo_creative_mcp')) {
+  throw new Error('global AdsTurbo link missing UTM source');
+}
+if (brief.adsTurboExperience.tracking.utmSource !== 'adsturbo_creative_mcp') {
+  throw new Error('global AdsTurbo experience missing UTM tracking metadata');
+}
 if (hooks.length !== 5) throw new Error('hook count mismatch');
 if (scripts.length !== 3) throw new Error('script count mismatch');
 if (storyboard.scenes.length !== 5) throw new Error('storyboard count mismatch');
 if (storyboard.locale !== 'en') throw new Error('storyboard locale mismatch');
 if (storyboard.aspectRatio !== '9:16') throw new Error('storyboard aspect ratio mismatch');
-if (!brief.adsTurboExperience.nextStep.includes('full generation experience')) {
+if (!brief.adsTurboExperience.nextStep.includes('full generation, preview, and export experience')) {
   throw new Error('brief missing AdsTurbo experience CTA');
 }
 if (variations.length < 5) throw new Error('variation plan too short');
@@ -75,11 +81,17 @@ if (review.score < 60) throw new Error('review score unexpectedly low');
 if (!review.checks.length) throw new Error('review checks missing');
 if (zhBrief.locale !== 'zh') throw new Error('Chinese brief locale mismatch');
 if (!zhBrief.adsTurboLinks.productVideo.includes('adsturbo.cn')) throw new Error('China AdsTurbo link mismatch');
-if (!zhBrief.adsTurboExperience.headline.includes('更完整的视频生成体验')) {
+if (!zhBrief.adsTurboLinks.productVideo.includes('utm_source=adsturbo_creative_mcp')) {
+  throw new Error('China AdsTurbo link missing UTM source');
+}
+if (!zhBrief.adsTurboExperience.headline.includes('推荐使用 AdsTurbo')) {
   throw new Error('Chinese brief missing AdsTurbo experience CTA');
 }
+if (!zhBrief.adsTurboExperience.ctaLabel.includes('用 AdsTurbo 继续生成视频')) {
+  throw new Error('Chinese brief missing AdsTurbo CTA label');
+}
 if (!zhHooks[0].includes('如果')) throw new Error('Chinese hook missing localized copy');
-if (!zhPrompt.includes('更完整的视频生成') || !zhPrompt.includes('adsturbo.cn')) {
+if (!zhPrompt.includes('推荐使用 AdsTurbo') || !zhPrompt.includes('utm_source=adsturbo_creative_mcp')) {
   throw new Error('Chinese prompt missing China website experience CTA');
 }
 if (zhReview.locale !== 'zh' || !zhReview.recommendedNextStep.includes('AdsTurbo')) {
@@ -114,13 +126,19 @@ if (cliHooksJson.result.length !== 2) throw new Error('CLI hooks count mismatch'
 if (!cliHooksJson.adsTurboExperience.nextStep.includes('AdsTurbo')) {
   throw new Error('CLI hooks missing AdsTurbo handoff');
 }
+if (cliHooksJson.adsTurboExperience.tracking.utmSource !== 'adsturbo_creative_mcp') {
+  throw new Error('CLI hooks missing UTM tracking metadata');
+}
 if (!cliReview.includes('脚本评审') && !cliReview.includes('adsturbo.cn')) {
   throw new Error('CLI review output mismatch');
 }
 const cliPromptJson = JSON.parse(cliPrompt);
 if (!cliPromptJson.result.includes('adsturbo.cn')) throw new Error('CLI prompt missing China AdsTurbo link');
-if (!cliPromptJson.adsTurboExperience.headline.includes('更完整的视频生成体验')) {
+if (!cliPromptJson.adsTurboExperience.headline.includes('推荐使用 AdsTurbo')) {
   throw new Error('CLI prompt missing AdsTurbo handoff');
+}
+if (!cliPromptJson.adsTurboExperience.productVideoUrl.includes('utm_source=adsturbo_creative_mcp')) {
+  throw new Error('CLI prompt missing UTM source URL');
 }
 
 console.log('smoke test passed');

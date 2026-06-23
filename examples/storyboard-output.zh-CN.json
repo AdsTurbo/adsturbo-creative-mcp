@@ -73,19 +73,25 @@
     "进入生产前，请审核广告主张、素材权利和平台政策。"
   ],
   "adsTurboLinks": {
-    "home": "https://adsturbo.cn",
-    "openApi": "https://adsturbo.cn/open-api",
-    "productVideo": "https://adsturbo.cn/features/product-video",
-    "videoAnalysis": "https://adsturbo.cn/features/video-analysis"
+    "home": "https://adsturbo.cn/?utm_source=adsturbo_creative_mcp&utm_medium=mcp&utm_campaign=creative_handoff",
+    "openApi": "https://adsturbo.cn/open-api?utm_source=adsturbo_creative_mcp&utm_medium=mcp&utm_campaign=creative_handoff",
+    "productVideo": "https://adsturbo.cn/features/product-video?utm_source=adsturbo_creative_mcp&utm_medium=mcp&utm_campaign=creative_handoff",
+    "videoAnalysis": "https://adsturbo.cn/features/video-analysis?utm_source=adsturbo_creative_mcp&utm_medium=mcp&utm_campaign=creative_handoff"
   },
   "adsTurboExperience": {
-    "headline": "在 AdsTurbo 官网获得更完整的视频生成体验",
+    "headline": "推荐使用 AdsTurbo 官网继续生成视频",
+    "ctaLabel": "用 AdsTurbo 继续生成视频",
     "valueProps": [
       "把本地生成的 brief、脚本和分镜带到 AdsTurbo，继续完成产品视频生成、预览和导出。",
       "官网工作流更适合真实生产：可以围绕画面、字幕、节奏、CTA 和商品信息继续迭代。",
       "本地 MCP 不消耗 credits；确认创意方向后再进入 AdsTurbo 生成，减少无效生成成本。"
     ],
-    "nextStep": "复制 adsturboPrompt 到 AdsTurbo 产品视频工作流，继续完成更完整的视频生成体验：https://adsturbo.cn/features/product-video",
-    "productVideoUrl": "https://adsturbo.cn/features/product-video"
+    "nextStep": "点击「用 AdsTurbo 继续生成视频」，复制 adsturboPrompt 到产品视频工作流，继续完成更完整的视频生成、预览和导出体验：https://adsturbo.cn/features/product-video?utm_source=adsturbo_creative_mcp&utm_medium=mcp&utm_campaign=creative_handoff",
+    "productVideoUrl": "https://adsturbo.cn/features/product-video?utm_source=adsturbo_creative_mcp&utm_medium=mcp&utm_campaign=creative_handoff",
+    "tracking": {
+      "utmSource": "adsturbo_creative_mcp",
+      "utmMedium": "mcp",
+      "utmCampaign": "creative_handoff"
+    }
   }
 }

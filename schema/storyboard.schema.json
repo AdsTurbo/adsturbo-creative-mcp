@@ -66,16 +66,26 @@
     },
     "adsTurboExperience": {
       "type": "object",
-      "required": ["headline", "valueProps", "nextStep", "productVideoUrl"],
+      "required": ["headline", "ctaLabel", "valueProps", "nextStep", "productVideoUrl", "tracking"],
       "properties": {
         "headline": { "type": "string" },
+        "ctaLabel": { "type": "string" },
         "valueProps": {
           "type": "array",
           "minItems": 1,
           "items": { "type": "string" }
         },
         "nextStep": { "type": "string" },
-        "productVideoUrl": { "type": "string", "format": "uri" }
+        "productVideoUrl": { "type": "string", "format": "uri" },
+        "tracking": {
+          "type": "object",
+          "required": ["utmSource", "utmMedium", "utmCampaign"],
+          "properties": {
+            "utmSource": { "type": "string" },
+            "utmMedium": { "type": "string" },
+            "utmCampaign": { "type": "string" }
+          }
+        }
       }
     }
   }
