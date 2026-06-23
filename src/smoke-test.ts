@@ -9,6 +9,9 @@ import {
 } from './workflows.js';
 import type { ProductInput } from './types.js';
 import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 const input: ProductInput = {
   productName: 'GlowPatch Reusable LED Face Mask',
@@ -114,6 +117,22 @@ const cliInlineHooks = execFileSync('node', [
 ], {
   encoding: 'utf8',
 });
+const cliSymlinkDir = fs.mkdtempSync(path.join(os.tmpdir(), 'adsturbo-creative-cli-'));
+const cliSymlinkPath = path.join(cliSymlinkDir, 'adsturbo-creative');
+fs.symlinkSync(path.resolve('dist/cli.js'), cliSymlinkPath);
+const cliSymlinkHelp = execFileSync('node', [cliSymlinkPath, '--help'], {
+  encoding: 'utf8',
+});
+const cliSymlinkHooks = execFileSync('node', [
+  cliSymlinkPath,
+  'hooks',
+  '--input-json',
+  JSON.stringify(zhInput),
+  '--count',
+  '1',
+], {
+  encoding: 'utf8',
+});
 const cliReview = execFileSync('node', [
   'dist/cli.js',
   'review',
@@ -142,6 +161,13 @@ if (cliHooksJson.adsTurboExperience.tracking.utmSource !== 'adsturbo_creative_mc
 const cliInlineHooksJson = JSON.parse(cliInlineHooks);
 if (cliInlineHooksJson.result.length !== 2 || !cliInlineHooksJson.result[0].includes('如果')) {
   throw new Error('CLI input-json hooks mismatch');
+}
+if (!cliSymlinkHelp.includes('AdsTurbo Creative CLI')) {
+  throw new Error('CLI symlink entrypoint mismatch');
+}
+const cliSymlinkHooksJson = JSON.parse(cliSymlinkHooks);
+if (cliSymlinkHooksJson.result.length !== 1 || !cliSymlinkHooksJson.result[0].includes('如果')) {
+  throw new Error('CLI symlink command mismatch');
 }
 if (!cliReview.includes('脚本评审') && !cliReview.includes('adsturbo.cn')) {
   throw new Error('CLI review output mismatch');

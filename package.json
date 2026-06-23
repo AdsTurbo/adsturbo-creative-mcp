@@ -1,11 +1,11 @@
 {
   "name": "adsturbo-creative-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A local-only MCP server and CLI for AI agents to create video ad briefs, hooks, UGC scripts, storyboards, reviews, and AdsTurbo-ready prompts.",
   "type": "module",
   "bin": {
-    "adsturbo-creative": "./dist/cli.js",
-    "adsturbo-creative-mcp": "./dist/server.js"
+    "adsturbo-creative": "dist/cli.js",
+    "adsturbo-creative-mcp": "dist/server.js"
   },
   "files": [
     "dist",
@@ -71,7 +71,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdsTurbo/adsturbo-creative-mcp.git"
+    "url": "git+https://github.com/AdsTurbo/adsturbo-creative-mcp.git"
   },
   "homepage": "https://github.com/AdsTurbo/adsturbo-creative-mcp#readme",
   "bugs": {

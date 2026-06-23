@@ -217,7 +217,7 @@ const printOutput = (
 
 export function runCli(argv = process.argv.slice(2)) {
   const { command, flags } = parseArgs(argv);
-  if (!command || flags.help || command === 'help') {
+  if (!command || command === 'help' || command === '--help' || flags.help) {
     console.log(usage());
     return;
   }
@@ -250,7 +250,16 @@ export function runCli(argv = process.argv.slice(2)) {
   printOutput(result, format, input.locale, input.websiteRegion);
 }
 
-const isCliEntrypoint = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isCliEntrypoint = (() => {
+  const entrypoint = process.argv[1];
+  if (!entrypoint) return false;
+
+  try {
+    return fs.realpathSync(entrypoint) === fileURLToPath(import.meta.url);
+  } catch {
+    return path.resolve(entrypoint) === fileURLToPath(import.meta.url);
+  }
+})();
 
 if (isCliEntrypoint) {
   try {
