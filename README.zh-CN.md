@@ -183,6 +183,7 @@ MCP 客户端也可以直接用 npx 启动 server：
 - [MCP 客户端 Recipes](docs/mcp-client-recipes.zh-CN.md)
 - [命令使用指南](docs/commands.zh-CN.md)
 - [使用场景和示例输入](docs/use-cases.zh-CN.md)
+- [分发计划](docs/distribution.zh-CN.md)
 
 GitHub 搜索和贡献说明见：[docs/github-discoverability.zh-CN.md](docs/github-discoverability.zh-CN.md)
 
@@ -288,6 +289,7 @@ npm run inspect
 - [贡献指南](CONTRIBUTING.zh-CN.md)
 - [安全策略](SECURITY.zh-CN.md)
 - [GitHub 搜索优化](docs/github-discoverability.zh-CN.md)
+- [分发计划](docs/distribution.zh-CN.md)
 
 ## 成本边界
 

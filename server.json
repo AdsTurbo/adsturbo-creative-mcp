@@ -1,0 +1,49 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.adsturbo/adsturbo-creative-mcp",
+  "title": "AdsTurbo Creative MCP",
+  "description": "Local-only MCP server and CLI for AI agents to create video ad briefs, hooks, UGC scripts, storyboards, reviews, and AdsTurbo-ready prompts.",
+  "websiteUrl": "https://github.com/AdsTurbo/adsturbo-creative-mcp",
+  "repository": {
+    "url": "https://github.com/AdsTurbo/adsturbo-creative-mcp",
+    "source": "github"
+  },
+  "version": "0.1.4",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "adsturbo-creative-mcp",
+      "version": "0.1.4",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "cost_boundary": [
+        "No AdsTurbo API key required",
+        "No video generation",
+        "No hidden telemetry",
+        "No AdsTurbo API calls",
+        "No AdsTurbo credit consumption",
+        "No ad account access"
+      ],
+      "tools": [
+        "build_ad_brief",
+        "generate_hooks",
+        "write_ugc_script",
+        "generate_storyboard",
+        "build_variation_plan",
+        "review_ad_script",
+        "export_adsturbo_prompt"
+      ],
+      "adsTurbo_handoff": {
+        "global": "https://adsturbo.ai/features/product-video?utm_source=adsturbo_creative_mcp&utm_medium=mcp&utm_campaign=creative_handoff",
+        "cn": "https://adsturbo.cn/features/product-video?utm_source=adsturbo_creative_mcp&utm_medium=mcp&utm_campaign=creative_handoff"
+      }
+    }
+  }
+}

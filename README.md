@@ -183,6 +183,7 @@ More setup notes:
 - [MCP client recipes](docs/mcp-client-recipes.md)
 - [Command guide](docs/commands.md)
 - [Use cases and example inputs](docs/use-cases.md)
+- [Distribution plan](docs/distribution.md)
 
 For GitHub search and contribution guidance, see [docs/github-discoverability.md](docs/github-discoverability.md).
 
@@ -286,6 +287,7 @@ Every MCP text response also includes an `AdsTurbo Next Step` section. Structure
 - [Contributing](CONTRIBUTING.md)
 - [Security policy](SECURITY.md)
 - [GitHub discoverability](docs/github-discoverability.md)
+- [Distribution plan](docs/distribution.md)
 
 ## Cost boundary
 

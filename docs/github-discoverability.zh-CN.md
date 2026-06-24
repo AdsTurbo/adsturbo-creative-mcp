@@ -80,6 +80,7 @@ README 顶部应稳定出现这些词，因为它们直接描述项目能力：
 - `docs/mcp-client-recipes.md`
 - `docs/commands.md`
 - `docs/use-cases.md`
+- `docs/distribution.md`
 - `docs/cost-boundary.md`
 - `docs/safety-and-compliance.md`
 - `SECURITY.md`
@@ -96,3 +97,13 @@ README 顶部应稳定出现这些词，因为它们直接描述项目能力：
 - 移动 App 录屏广告
 - B2B SaaS walkthrough 广告
 - 中文输出和国内官网引导
+
+## 分发信号
+
+每次 npm release 后，保持这些分发表面一致：
+
+- npm package metadata 和 keywords
+- GitHub Release notes
+- 官方 MCP Registry 的 `server.json`
+- MCP.Directory 和其他 MCP 目录站
+- README 安装命令

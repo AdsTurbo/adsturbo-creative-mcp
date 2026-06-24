@@ -80,6 +80,7 @@ Keep these files present and up to date:
 - `docs/mcp-client-recipes.md`
 - `docs/commands.md`
 - `docs/use-cases.md`
+- `docs/distribution.md`
 - `docs/cost-boundary.md`
 - `docs/safety-and-compliance.md`
 - `SECURITY.md`
@@ -96,3 +97,13 @@ Keep real, runnable examples under `examples/use-cases/` so GitHub and npm visit
 - mobile app screen-recording ads
 - B2B SaaS walkthrough ads
 - Chinese output with China website handoff
+
+## Distribution signals
+
+After each npm release, keep these distribution surfaces aligned:
+
+- npm package metadata and keywords
+- GitHub Release notes
+- official MCP Registry `server.json`
+- MCP.Directory and other MCP directories
+- README install commands
