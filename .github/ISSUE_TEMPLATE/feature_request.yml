@@ -1,27 +1,48 @@
 name: Feature request
-description: Suggest an improvement to the MCP server, CLI, docs, examples, or schema.
+description: Suggest a local-only creative planning improvement.
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
   - type: textarea
-    id: problem
+    id: use-case
     attributes:
-      label: Problem
-      description: What problem would this solve for AI agents, MCP clients, or local ad creative planning?
+      label: Use case
+      description: What workflow would this improve?
+      placeholder: I want to generate...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Ad brief
+        - Hooks
+        - UGC scripts
+        - Storyboard
+        - Variation plan
+        - Script review
+        - AdsTurbo prompt export
+        - MCP client setup
+        - CLI ergonomics
+        - Multilingual docs or examples
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: Proposal
-      description: Describe the change you want.
+      label: Proposed behavior
+      placeholder: The tool should...
     validations:
       required: true
   - type: checkboxes
-    id: scope
+    id: boundary
     attributes:
-      label: Scope check
+      label: Cost and safety boundary
       options:
-        - label: This can run locally without an AdsTurbo API key.
-        - label: This does not consume AdsTurbo credits by default.
-        - label: This keeps ad claims grounded in user-provided product information.
+        - label: This can work locally without AdsTurbo API calls.
+          required: true
+        - label: This does not require video generation or credit consumption.
+          required: true
+        - label: This does not require ad account access.
+          required: true

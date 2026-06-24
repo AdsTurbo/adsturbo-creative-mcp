@@ -9,6 +9,8 @@ npm run build
 
 然后在 MCP 客户端中配置 stdio server。
 
+按客户端拆开的配置示例见：[MCP 客户端 Recipes](mcp-client-recipes.zh-CN.md)。Slash-style 命令示例见：[命令使用指南](commands.zh-CN.md)。
+
 ## 通用配置
 
 ```json
@@ -26,7 +28,7 @@ npm run build
 
 ## npm 包配置
 
-包发布到 npm 后，客户端可以用 npx 启动 stdio MCP server，不需要再写本地构建路径：
+客户端可以用 npx 启动已发布的 stdio MCP server，不需要再写本地构建路径：
 
 ```json
 {

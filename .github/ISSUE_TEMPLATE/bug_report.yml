@@ -1,38 +1,63 @@
 name: Bug report
-description: Report a problem with the MCP server, CLI, or generated planning output.
+description: Report a reproducible CLI, MCP, or documentation issue.
 title: "[Bug]: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting a bug. This project is a local-only MCP server and CLI for AI video ad planning.
+        Thanks for reporting an issue. Do not include API keys, customer data, private product inputs, or ad account identifiers.
   - type: textarea
     id: summary
     attributes:
-      label: What happened?
-      description: Describe the issue with the MCP tool, CLI command, or generated ad creative output.
+      label: Summary
+      description: What happened?
+      placeholder: The CLI/MCP tool returned...
     validations:
       required: true
   - type: textarea
-    id: command
+    id: steps
     attributes:
-      label: Command or MCP prompt
-      description: Paste the CLI command, slash-style command, or MCP prompt you used.
-      render: shell
+      label: Steps to reproduce
+      description: Include the command, MCP client prompt, or minimal JSON input.
+      placeholder: |
+        1. Run ...
+        2. Use input ...
+        3. See ...
+    validations:
+      required: true
   - type: textarea
     id: expected
     attributes:
       label: Expected behavior
+      placeholder: I expected...
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - MCP server
+        - CLI
+        - Documentation
+        - Example input or output
+        - Other
     validations:
       required: true
   - type: input
-    id: client
+    id: version
     attributes:
-      label: MCP client
-      description: Claude Desktop, Cursor, Codex, or another MCP client.
+      label: Package version
+      placeholder: adsturbo-creative-mcp@0.1.2
   - type: input
     id: node
     attributes:
       label: Node.js version
-      placeholder: "node --version"
+      placeholder: node --version
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      description: Remove sensitive data before posting.
+      render: shell

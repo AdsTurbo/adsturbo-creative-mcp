@@ -77,7 +77,22 @@ Keep these files present and up to date:
 - `CONTRIBUTING.md`
 - `.github/ISSUE_TEMPLATE/*`
 - `docs/mcp-client-setup.md`
+- `docs/mcp-client-recipes.md`
+- `docs/commands.md`
+- `docs/use-cases.md`
 - `docs/cost-boundary.md`
 - `docs/safety-and-compliance.md`
+- `SECURITY.md`
+- `.github/pull_request_template.md`
 
 These files help users understand whether the project is maintained, safe to try, and open to practical workflow feedback.
+
+## Example signals
+
+Keep real, runnable examples under `examples/use-cases/` so GitHub and npm visitors can see concrete use cases without reading source code:
+
+- beauty device UGC ads
+- ecommerce product demos
+- mobile app screen-recording ads
+- B2B SaaS walkthrough ads
+- Chinese output with China website handoff

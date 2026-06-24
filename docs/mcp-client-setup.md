@@ -11,6 +11,8 @@ npm run build
 
 Then configure your MCP client to run the stdio server.
 
+For client-specific recipes, see [MCP client recipes](mcp-client-recipes.md). For slash-style command examples, see [Command guide](commands.md).
+
 ## Generic config
 
 ```json
@@ -28,7 +30,7 @@ Replace `/absolute/path/to/adsturbo-creative-mcp` with the local path to this re
 
 ## npm package config
 
-After the package is published to npm, clients can launch the stdio MCP server with npx instead of a local build path:
+Clients can launch the published stdio MCP server with npx instead of a local build path:
 
 ```json
 {

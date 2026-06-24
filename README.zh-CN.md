@@ -118,7 +118,7 @@ node dist/cli.js brief --input examples/product-input.zh-CN.json
 node dist/cli.js review --script-file examples/script-input.zh-CN.txt --locale zh --region cn
 ```
 
-包发布到 npm 后，用户可以全局安装并使用更短的 CLI 命令：
+从 npm 安装后，可以使用更短的 CLI 命令：
 
 ```bash
 npm install -g adsturbo-creative-mcp
@@ -164,7 +164,7 @@ codex mcp list
 }
 ```
 
-包发布到 npm 后，MCP 客户端也可以直接用 npx 启动 server：
+MCP 客户端也可以直接用 npx 启动 server：
 
 ```json
 {
@@ -177,7 +177,12 @@ codex mcp list
 }
 ```
 
-更多说明：[docs/mcp-client-setup.zh-CN.md](docs/mcp-client-setup.zh-CN.md)
+更多说明：
+
+- [MCP 客户端设置](docs/mcp-client-setup.zh-CN.md)
+- [MCP 客户端 Recipes](docs/mcp-client-recipes.zh-CN.md)
+- [命令使用指南](docs/commands.zh-CN.md)
+- [使用场景和示例输入](docs/use-cases.zh-CN.md)
 
 GitHub 搜索和贡献说明见：[docs/github-discoverability.zh-CN.md](docs/github-discoverability.zh-CN.md)
 
@@ -276,6 +281,13 @@ npm run inspect
 - [examples/storyboard-output.zh-CN.json](examples/storyboard-output.zh-CN.json)
 - [examples/ugc-script-review.md](examples/ugc-script-review.md)
 - [examples/product-input.zh-CN.json](examples/product-input.zh-CN.json)
+- [examples/use-cases/](examples/use-cases/)
+
+## 社区
+
+- [贡献指南](CONTRIBUTING.zh-CN.md)
+- [安全策略](SECURITY.zh-CN.md)
+- [GitHub 搜索优化](docs/github-discoverability.zh-CN.md)
 
 ## 成本边界
 

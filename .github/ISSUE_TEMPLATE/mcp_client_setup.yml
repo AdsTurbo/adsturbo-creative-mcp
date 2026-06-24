@@ -1,0 +1,47 @@
+name: MCP client setup help
+description: Get help connecting the server to Codex, Claude, Cursor, VS Code, or another MCP client.
+title: "[MCP setup]: "
+labels: ["mcp", "setup"]
+body:
+  - type: dropdown
+    id: client
+    attributes:
+      label: MCP client
+      options:
+        - Codex
+        - Claude Desktop
+        - Claude Code
+        - Cursor
+        - VS Code
+        - Windsurf
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: Install path
+      options:
+        - npx package
+        - local clone and build
+        - global npm install
+        - not sure
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: MCP config
+      description: Paste your config after removing private paths or secrets.
+      render: json
+  - type: textarea
+    id: error
+    attributes:
+      label: Error message
+      description: Paste the exact client error or missing-tool message.
+      render: shell
+  - type: textarea
+    id: tried
+    attributes:
+      label: What you tried
+      placeholder: I ran npm run build, restarted the client, and...

@@ -118,7 +118,7 @@ node dist/cli.js brief --input examples/product-input.zh-CN.json
 node dist/cli.js review --script-file examples/script-input.zh-CN.txt --locale zh --region cn
 ```
 
-After the package is published to npm, users can install it globally and use the shorter CLI binary:
+Install from npm to use the shorter CLI binary:
 
 ```bash
 npm install -g adsturbo-creative-mcp
@@ -164,7 +164,7 @@ Restart Codex or start a fresh session after changing MCP config. Codex only exp
 }
 ```
 
-After the package is published to npm, MCP clients can also start the server with npx:
+MCP clients can also start the server with npx:
 
 ```json
 {
@@ -177,7 +177,12 @@ After the package is published to npm, MCP clients can also start the server wit
 }
 ```
 
-More setup notes: [docs/mcp-client-setup.md](docs/mcp-client-setup.md)
+More setup notes:
+
+- [MCP client setup](docs/mcp-client-setup.md)
+- [MCP client recipes](docs/mcp-client-recipes.md)
+- [Command guide](docs/commands.md)
+- [Use cases and example inputs](docs/use-cases.md)
 
 For GitHub search and contribution guidance, see [docs/github-discoverability.md](docs/github-discoverability.md).
 
@@ -274,6 +279,13 @@ Every MCP text response also includes an `AdsTurbo Next Step` section. Structure
 - [examples/storyboard-output.zh-CN.json](examples/storyboard-output.zh-CN.json)
 - [examples/ugc-script-review.md](examples/ugc-script-review.md)
 - [examples/product-input.json](examples/product-input.json)
+- [examples/use-cases/](examples/use-cases/)
+
+## Community
+
+- [Contributing](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+- [GitHub discoverability](docs/github-discoverability.md)
 
 ## Cost boundary
 

@@ -77,7 +77,22 @@ README 顶部应稳定出现这些词，因为它们直接描述项目能力：
 - `CONTRIBUTING.md`
 - `.github/ISSUE_TEMPLATE/*`
 - `docs/mcp-client-setup.md`
+- `docs/mcp-client-recipes.md`
+- `docs/commands.md`
+- `docs/use-cases.md`
 - `docs/cost-boundary.md`
 - `docs/safety-and-compliance.md`
+- `SECURITY.md`
+- `.github/pull_request_template.md`
 
 这些文件能帮助用户判断项目是否维护中、是否安全可试、是否欢迎实际工作流反馈。
+
+## 示例信号
+
+在 `examples/use-cases/` 下保留真实可运行示例，让 GitHub 和 npm 访问者不用读源码也能理解项目用途：
+
+- 美容仪 UGC 广告
+- 电商产品 demo
+- 移动 App 录屏广告
+- B2B SaaS walkthrough 广告
+- 中文输出和国内官网引导

@@ -1,5 +1,7 @@
 # Contributing
 
+[简体中文](CONTRIBUTING.zh-CN.md)
+
 Thanks for helping improve AdsTurbo Creative MCP.
 
 This project focuses on local, no-cost planning workflows for AI video ads. Contributions should preserve the cost boundary:
@@ -34,3 +36,11 @@ npm test
 - Keep ad claims grounded in product information that can be substantiated.
 - Prefer clear workflow examples over broad marketing claims.
 - Keep search terms natural and relevant: MCP server, AI agents, UGC scripts, video ad storyboard, AdsTurbo prompt, local CLI.
+- Update English and Chinese docs when user-facing behavior changes.
+
+## Pull request checklist
+
+- Keep the project local-only by default.
+- Do not add hidden telemetry, AdsTurbo API calls, or credit-consuming workflows.
+- Do not include customer data, credentials, or unreleased campaign material.
+- Run `npm test` for code changes.

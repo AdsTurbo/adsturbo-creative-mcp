@@ -1,0 +1,39 @@
+{
+  "productName": "LinguaLoop Daily Speaking Coach",
+  "brandName": "LinguaLoop",
+  "category": "mobile app",
+  "audience": "busy professionals learning conversational Spanish",
+  "platform": "shorts",
+  "durationSeconds": 30,
+  "price": "$9.99/month",
+  "benefits": [
+    "daily 5 minute speaking drills",
+    "AI role-play conversations",
+    "progress streak reminders"
+  ],
+  "painPoints": [
+    "hard to practice speaking out loud",
+    "language apps feel passive",
+    "busy schedule breaks study habits"
+  ],
+  "proofPoints": [
+    "conversation scenarios for travel and work",
+    "voice playback for self-review",
+    "daily reminders"
+  ],
+  "offer": "7 day free trial",
+  "tone": "screen-recording led app demo with creator voiceover",
+  "primaryCta": "Start the free trial",
+  "locale": "en",
+  "websiteRegion": "global",
+  "requiredShots": [
+    "phone home screen with app icon",
+    "daily speaking drill screen",
+    "AI role-play conversation",
+    "trial CTA end card"
+  ],
+  "forbiddenClaims": [
+    "become fluent in 7 days",
+    "guaranteed fluency"
+  ]
+}

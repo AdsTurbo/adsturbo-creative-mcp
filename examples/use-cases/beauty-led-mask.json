@@ -1,0 +1,39 @@
+{
+  "productName": "GlowPatch Reusable LED Face Mask",
+  "brandName": "GlowPatch",
+  "category": "beauty device",
+  "audience": "busy skincare buyers who want a simple at-home routine",
+  "platform": "tiktok",
+  "durationSeconds": 25,
+  "price": "$89",
+  "benefits": [
+    "hands-free 10 minute sessions",
+    "reusable silicone mask",
+    "red and blue light modes"
+  ],
+  "painPoints": [
+    "too many skincare steps",
+    "expensive appointments",
+    "hard to stay consistent"
+  ],
+  "proofPoints": [
+    "designed for daily at-home use",
+    "soft flexible fit",
+    "one-button mode switching"
+  ],
+  "offer": "15% off this week",
+  "tone": "friendly UGC demo in natural bathroom light",
+  "primaryCta": "Shop the routine",
+  "locale": "en",
+  "websiteRegion": "global",
+  "requiredShots": [
+    "mask close-up on bathroom counter",
+    "creator wearing the mask while scrolling phone",
+    "one-button mode switch close-up",
+    "end card with offer"
+  ],
+  "forbiddenClaims": [
+    "cures acne",
+    "guaranteed results overnight"
+  ]
+}

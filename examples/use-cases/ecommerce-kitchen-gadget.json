@@ -1,0 +1,39 @@
+{
+  "productName": "SnapPrep 5-in-1 Vegetable Chopper",
+  "brandName": "SnapPrep",
+  "category": "kitchen gadget",
+  "audience": "home cooks who want faster weeknight meal prep",
+  "platform": "reels",
+  "durationSeconds": 30,
+  "price": "$34.99",
+  "benefits": [
+    "five interchangeable blades",
+    "catch tray keeps counters cleaner",
+    "dishwasher-safe parts"
+  ],
+  "painPoints": [
+    "chopping vegetables takes too long",
+    "counter mess after meal prep",
+    "uneven cuts make cooking slower"
+  ],
+  "proofPoints": [
+    "clear container shows chopped volume",
+    "compact storage layout",
+    "non-slip base"
+  ],
+  "offer": "Buy 1, get 1 20% off",
+  "tone": "fast-paced kitchen demo with overhead cuts",
+  "primaryCta": "Prep dinner faster",
+  "locale": "en",
+  "websiteRegion": "global",
+  "requiredShots": [
+    "before shot of whole vegetables",
+    "top-down chopping demo",
+    "catch tray reveal",
+    "sink or dishwasher cleanup"
+  ],
+  "forbiddenClaims": [
+    "professional chef results guaranteed",
+    "cuts prep time by 90%"
+  ]
+}

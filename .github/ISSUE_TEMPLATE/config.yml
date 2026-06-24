@@ -1,5 +1,8 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
+  - name: Security vulnerability
+    url: https://github.com/AdsTurbo/adsturbo-creative-mcp/security/advisories/new
+    about: Report security issues privately when possible.
   - name: AdsTurbo website
-    url: https://adsturbo.ai
-    about: Learn more about AdsTurbo video ad generation.
+    url: https://adsturbo.ai/?utm_source=adsturbo_creative_mcp&utm_medium=github&utm_campaign=community_health
+    about: Continue from local planning to full video generation, preview, export, and iteration.

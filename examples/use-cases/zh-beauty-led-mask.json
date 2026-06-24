@@ -1,0 +1,39 @@
+{
+  "productName": "GlowPatch 可重复使用 LED 面膜",
+  "brandName": "GlowPatch",
+  "category": "美容仪",
+  "audience": "想要简单居家护肤流程的忙碌护肤用户",
+  "platform": "tiktok",
+  "durationSeconds": 25,
+  "price": "¥599",
+  "benefits": [
+    "10 分钟免手持护理",
+    "可重复使用的柔软硅胶面罩",
+    "红光和蓝光两种模式"
+  ],
+  "painPoints": [
+    "护肤步骤太多",
+    "线下护理价格高",
+    "很难坚持规律护肤"
+  ],
+  "proofPoints": [
+    "为日常居家使用设计",
+    "柔软贴合",
+    "一键切换模式"
+  ],
+  "offer": "本周 85 折",
+  "tone": "自然光居家 UGC 护肤演示",
+  "primaryCta": "立即了解",
+  "locale": "zh",
+  "websiteRegion": "cn",
+  "requiredShots": [
+    "浴室台面上的面膜近景",
+    "创作者佩戴面膜刷手机",
+    "一键切换模式近景",
+    "带优惠信息的结尾画面"
+  ],
+  "forbiddenClaims": [
+    "治疗痘痘",
+    "一夜见效"
+  ]
+}

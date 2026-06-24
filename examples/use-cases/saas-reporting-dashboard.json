@@ -1,0 +1,39 @@
+{
+  "productName": "MetricFlow SaaS Reporting Dashboard",
+  "brandName": "MetricFlow",
+  "category": "B2B SaaS",
+  "audience": "growth teams that need weekly performance reporting without spreadsheet cleanup",
+  "platform": "youtube",
+  "durationSeconds": 45,
+  "price": "Starts at $49/month",
+  "benefits": [
+    "connects marketing and revenue data",
+    "weekly report templates",
+    "shareable stakeholder dashboards"
+  ],
+  "painPoints": [
+    "manual reporting takes hours",
+    "data sources do not match",
+    "stakeholders ask for last-minute updates"
+  ],
+  "proofPoints": [
+    "template gallery",
+    "scheduled report delivery",
+    "role-based dashboard sharing"
+  ],
+  "offer": "Book a 15 minute demo",
+  "tone": "quiet product-led walkthrough for B2B buyers",
+  "primaryCta": "Book a demo",
+  "locale": "en",
+  "websiteRegion": "global",
+  "requiredShots": [
+    "dashboard overview",
+    "template selection",
+    "scheduled report setup",
+    "shared dashboard link"
+  ],
+  "forbiddenClaims": [
+    "replace every analyst",
+    "guaranteed revenue growth"
+  ]
+}
