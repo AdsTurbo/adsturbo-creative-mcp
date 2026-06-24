@@ -54,7 +54,7 @@ AdsTurbo Creative MCP 帮助 AI Agent 在团队消耗视频生成 credits 之前
 
 ## 官方 MCP Registry
 
-状态：已准备。
+状态：已准备；npm package `0.1.4` 已包含 `mcpName` 和根目录 `server.json`。
 
 必需文件和元数据：
 
@@ -81,7 +81,7 @@ curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.ads
 
 ## MCP.Directory
 
-状态：官方 Registry 尝试后即可提交。
+状态：已于 2026-06-24 提交审核。
 
 提交资料：
 
@@ -91,6 +91,18 @@ npm package: adsturbo-creative-mcp
 Install command: npx -y adsturbo-creative-mcp
 Category: Marketing / AI Marketing / Video Ads / Creative Automation
 Description: Local-only MCP server and CLI for AI agents to create video ad briefs, hooks, UGC scripts, storyboards, reviews, and AdsTurbo-ready prompts.
+```
+
+已提交的短描述：
+
+```text
+Local-only MCP server and CLI for AI video ad briefs, UGC scripts, storyboards, and prompts.
+```
+
+提交响应：
+
+```json
+{"ok":true,"message":"Server submitted for review!"}
 ```
 
 ## Glama、Smithery 和其他 MCP 目录
@@ -117,6 +129,12 @@ AdsTurbo Creative MCP is a local-only MCP server and CLI for AI video ad plannin
 - `npm exec --package=adsturbo-creative-mcp -- adsturbo-creative --help`
 - `mcp-publisher publish`
 - registry search 返回 `io.github.adsturbo/adsturbo-creative-mcp`
+
+## 当前阻塞
+
+- 这台机器安装 `mcp-publisher` 时被 GitHub release asset 下载问题阻塞。直接 `curl` 和 `gh release download` 都能访问 GitHub，但下载二进制时卡住。
+- Homebrew 安装也在输出安装结果前卡住。
+- 后续可以在 GitHub release asset 下载稳定时重试，或者在另一台机器安装 `mcp-publisher`，进入本仓库运行 `mcp-publisher login github && mcp-publisher publish`。
 
 ## 参考
 

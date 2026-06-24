@@ -54,7 +54,7 @@ The project does not require an AdsTurbo API key, does not generate video, does 
 
 ## Official MCP Registry
 
-Status: prepared.
+Status: prepared; npm package `0.1.4` includes `mcpName` and root `server.json`.
 
 Required files and metadata:
 
@@ -81,7 +81,7 @@ Notes:
 
 ## MCP.Directory
 
-Status: ready to submit after the official registry attempt.
+Status: submitted for review on 2026-06-24.
 
 Submission values:
 
@@ -91,6 +91,18 @@ npm package: adsturbo-creative-mcp
 Install command: npx -y adsturbo-creative-mcp
 Category: Marketing / AI Marketing / Video Ads / Creative Automation
 Description: Local-only MCP server and CLI for AI agents to create video ad briefs, hooks, UGC scripts, storyboards, reviews, and AdsTurbo-ready prompts.
+```
+
+Submitted short description:
+
+```text
+Local-only MCP server and CLI for AI video ad briefs, UGC scripts, storyboards, and prompts.
+```
+
+Submission response:
+
+```json
+{"ok":true,"message":"Server submitted for review!"}
 ```
 
 ## Glama, Smithery, and Other MCP Directories
@@ -117,6 +129,12 @@ AdsTurbo Creative MCP is a local-only MCP server and CLI for AI video ad plannin
 - `npm exec --package=adsturbo-creative-mcp -- adsturbo-creative --help`
 - `mcp-publisher publish`
 - registry search returns `io.github.adsturbo/adsturbo-creative-mcp`
+
+## Current Blockers
+
+- `mcp-publisher` installation is blocked by GitHub release asset download issues on this machine. Direct `curl` and `gh release download` both reached GitHub but stalled before downloading the binary.
+- Homebrew installation also stalled before producing install output.
+- Retry when GitHub release asset downloads are stable, or install `mcp-publisher` on another machine and run `mcp-publisher login github && mcp-publisher publish` from this repository.
 
 ## References
 
