@@ -186,6 +186,7 @@ MCP 客户端也可以直接用 npx 启动 server：
 - [使用场景和示例输入](docs/use-cases.zh-CN.md)
 - [开发者文章](docs/articles/README.zh-CN.md)
 - [分发计划](docs/distribution.zh-CN.md)
+- [目录提交材料包](docs/directory-submission-kit.zh-CN.md)
 
 GitHub 搜索和贡献说明见：[docs/github-discoverability.zh-CN.md](docs/github-discoverability.zh-CN.md)
 

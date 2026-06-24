@@ -59,6 +59,7 @@ AdsTurbo Creative MCP 帮助 AI Agent 在团队消耗视频生成 credits 之前
 - [用本地 MCP Server 做视频广告策划工作流](articles/local-mcp-server-for-video-ad-planning.zh-CN.md)
 - [在视频生产前使用 MCP UGC 脚本生成器](articles/ugc-script-generator-mcp.zh-CN.md)
 - [用 MCP 和 AdsTurbo 搭建 AI 广告创意工作流](articles/ai-ad-creative-workflow-with-mcp.zh-CN.md)
+- [目录提交材料包](directory-submission-kit.zh-CN.md)
 
 每篇文章都包含可运行命令、MCP prompt 示例、本地成本边界和 AdsTurbo 官网 handoff。它们用于承接 `视频广告策划 MCP server`、`UGC 脚本生成器 MCP`、`AI 广告创意 MCP 工作流` 这类长尾搜索。
 
@@ -151,9 +152,12 @@ AdsTurbo Creative MCP is a local-only MCP server and CLI for AI video ad plannin
 
 ## 当前阻塞
 
-- 这台机器安装 `mcp-publisher` 时被 GitHub release asset 下载问题阻塞。直接 `curl` 和 `gh release download` 都能访问 GitHub，但下载二进制时卡住。
-- Homebrew 安装也在输出安装结果前卡住。
-- 后续可以在 GitHub release asset 下载稳定时重试，或者在另一台机器安装 `mcp-publisher`，进入本仓库运行 `mcp-publisher login github && mcp-publisher publish`。
+- 这台机器安装 `mcp-publisher` 时被 GitHub release asset 下载问题阻塞。
+- 2026-06-24，直接 `curl` 可以访问 `mcp-publisher_darwin_arm64.tar.gz` asset，并下载了 6.8 MB 中的 3.8 MB，但在 57% 处卡住。
+- 2026-06-24，`curl -C -` 断点续传失败，报 GitHub port 443 connection timeout。
+- 2026-06-24，`gh release download` 无进度输出并长时间悬挂。
+- 2026-06-24，从源码构建的备选方案也失败：`git clone --depth 1 --branch v1.7.9 https://github.com/modelcontextprotocol/registry.git` 同样遇到 GitHub port 443 connection timeout。
+- 后续可以在 GitHub 下载稳定时重试，或在能正常 clone GitHub 的机器上从源码构建，也可以在另一台机器安装 `mcp-publisher`，进入本仓库运行 `mcp-publisher login github && mcp-publisher publish`。
 
 ## 参考
 

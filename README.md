@@ -186,6 +186,7 @@ More setup notes:
 - [Use cases and example inputs](docs/use-cases.md)
 - [Developer articles](docs/articles/README.md)
 - [Distribution plan](docs/distribution.md)
+- [Directory submission kit](docs/directory-submission-kit.md)
 
 For GitHub search and contribution guidance, see [docs/github-discoverability.md](docs/github-discoverability.md).
 

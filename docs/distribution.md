@@ -59,6 +59,7 @@ Use these pages as stable content targets when submitting to directories, commun
 - [Build a Local MCP Server Workflow for Video Ad Planning](articles/local-mcp-server-for-video-ad-planning.md)
 - [Use an MCP UGC Script Generator Before Video Production](articles/ugc-script-generator-mcp.md)
 - [AI Ad Creative Workflow with MCP and AdsTurbo](articles/ai-ad-creative-workflow-with-mcp.md)
+- [Directory Submission Kit](directory-submission-kit.md)
 
 Each article includes runnable commands, an MCP prompt example, the local-only cost boundary, and the AdsTurbo website handoff. These pages are intended to rank for long-tail queries such as `local MCP server for video ad planning`, `UGC script generator MCP`, and `AI ad creative workflow with MCP`.
 
@@ -151,9 +152,12 @@ AdsTurbo Creative MCP is a local-only MCP server and CLI for AI video ad plannin
 
 ## Current Blockers
 
-- `mcp-publisher` installation is blocked by GitHub release asset download issues on this machine. Direct `curl` and `gh release download` both reached GitHub but stalled before downloading the binary.
-- Homebrew installation also stalled before producing install output.
-- Retry when GitHub release asset downloads are stable, or install `mcp-publisher` on another machine and run `mcp-publisher login github && mcp-publisher publish` from this repository.
+- `mcp-publisher` installation is blocked by GitHub release asset download issues on this machine.
+- On 2026-06-24, direct `curl` reached the `mcp-publisher_darwin_arm64.tar.gz` asset and downloaded 3.8 MB of 6.8 MB, then stalled at 57%.
+- On 2026-06-24, `curl -C -` resume failed with a GitHub port 443 connection timeout.
+- On 2026-06-24, `gh release download` hung without progress output.
+- On 2026-06-24, source-build fallback with `git clone --depth 1 --branch v1.7.9 https://github.com/modelcontextprotocol/registry.git` also failed with a GitHub port 443 connection timeout.
+- Retry when GitHub downloads are stable, build from source on a machine that can clone GitHub, or install `mcp-publisher` on another machine and run `mcp-publisher login github && mcp-publisher publish` from this repository.
 
 ## References
 
