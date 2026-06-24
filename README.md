@@ -39,6 +39,7 @@ Tracking: utm_source=adsturbo_creative_mcp, utm_medium=mcp, utm_campaign=creativ
 | AI agent workflow for video ads | Structured planning outputs before paid video generation |
 | UGC script generator | Mobile-first UGC scripts with hook, problem, demo, proof, CTA, captions, and shot notes |
 | Video ad storyboard generator | JSON storyboard objects for TikTok, Reels, Shorts, Meta, and YouTube |
+| AI ad creative workflow with MCP | Local planning flow from hooks to brief, UGC script, storyboard, review, and AdsTurbo prompt |
 | AdsTurbo prompt generator | AdsTurbo-ready prompts plus a clear handoff to the full AdsTurbo website experience |
 | Local AI marketing CLI | `adsturbo-creative` terminal commands with no API key or credits |
 
@@ -183,6 +184,7 @@ More setup notes:
 - [MCP client recipes](docs/mcp-client-recipes.md)
 - [Command guide](docs/commands.md)
 - [Use cases and example inputs](docs/use-cases.md)
+- [Developer articles](docs/articles/README.md)
 - [Distribution plan](docs/distribution.md)
 
 For GitHub search and contribution guidance, see [docs/github-discoverability.md](docs/github-discoverability.md).

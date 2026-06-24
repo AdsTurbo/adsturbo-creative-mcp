@@ -39,6 +39,7 @@ node dist/cli.js hooks --input examples/product-input.zh-CN.json --count 2 --for
 | AI agent 视频广告工作流 | 在付费视频生成前先产出结构化策划结果 |
 | UGC 脚本生成器 | 生成包含 hook、problem、demo、proof、CTA、字幕和镜头说明的移动端脚本 |
 | 短视频广告分镜生成器 | 面向 TikTok、Reels、Shorts、Meta、YouTube 的 JSON storyboard |
+| AI 广告创意 MCP 工作流 | 从 hooks 到 brief、UGC 脚本、分镜、评审和 AdsTurbo prompt 的本地策划流程 |
 | AdsTurbo prompt 生成器 | 导出 AdsTurbo 可用 prompt，并明确引导用户到官网获得完整生成体验 |
 | 本地 AI marketing CLI | 不需要 API key、不消耗 credits 的 `adsturbo-creative` 终端命令 |
 
@@ -183,6 +184,7 @@ MCP 客户端也可以直接用 npx 启动 server：
 - [MCP 客户端 Recipes](docs/mcp-client-recipes.zh-CN.md)
 - [命令使用指南](docs/commands.zh-CN.md)
 - [使用场景和示例输入](docs/use-cases.zh-CN.md)
+- [开发者文章](docs/articles/README.zh-CN.md)
 - [分发计划](docs/distribution.zh-CN.md)
 
 GitHub 搜索和贡献说明见：[docs/github-discoverability.zh-CN.md](docs/github-discoverability.zh-CN.md)

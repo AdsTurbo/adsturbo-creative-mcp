@@ -52,6 +52,16 @@ AdsTurbo Creative MCP 帮助 AI Agent 在团队消耗视频生成 credits 之前
 - `review_ad_script`
 - `export_adsturbo_prompt`
 
+## 开发者内容资产
+
+提交目录站、社区列表或社交分发时，可以稳定引用这些页面：
+
+- [用本地 MCP Server 做视频广告策划工作流](articles/local-mcp-server-for-video-ad-planning.zh-CN.md)
+- [在视频生产前使用 MCP UGC 脚本生成器](articles/ugc-script-generator-mcp.zh-CN.md)
+- [用 MCP 和 AdsTurbo 搭建 AI 广告创意工作流](articles/ai-ad-creative-workflow-with-mcp.zh-CN.md)
+
+每篇文章都包含可运行命令、MCP prompt 示例、本地成本边界和 AdsTurbo 官网 handoff。它们用于承接 `视频广告策划 MCP server`、`UGC 脚本生成器 MCP`、`AI 广告创意 MCP 工作流` 这类长尾搜索。
+
 ## 官方 MCP Registry
 
 状态：已准备；npm package `0.1.4` 已包含 `mcpName` 和根目录 `server.json`。
@@ -105,9 +115,18 @@ Local-only MCP server and CLI for AI video ad briefs, UGC scripts, storyboards, 
 {"ok":true,"message":"Server submitted for review!"}
 ```
 
-## Glama、Smithery 和其他 MCP 目录
+## 其他目录目标
 
-复用同一份标准资料。表达重点保持一致：
+| 目录 | 状态 | 下一步 |
+| --- | --- | --- |
+| 官方 MCP Registry | 已准备，但被 `mcp-publisher` 安装阻塞 | 等二进制下载恢复后重试 `mcp-publisher login github && mcp-publisher publish` |
+| MCP.Directory | 已于 2026-06-24 提交审核 | 审核后检查 listing 状态 |
+| Glama | 未提交 | 使用标准资料和 npm command，并把开发者文章作为使用证据 |
+| PulseMCP | 等官方 Registry 出现 | Registry 发布后再检查，因为 PulseMCP 更偏向从 Registry 发现 |
+| Awesome MCP Servers | 未提交 | Registry 或 MCP.Directory listing 出现后，准备一个放在 marketing/creative 分类下的 PR |
+| Smithery | 待评估 | 只有在不托管 AdsTurbo 付费调用且能改善安装体验时，才增加 Smithery-specific config |
+
+所有目录目标复用同一份标准资料。表达重点保持一致：
 
 - 本地策划
 - 不需要 API key 或 credits

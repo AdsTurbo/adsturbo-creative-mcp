@@ -52,6 +52,16 @@ The project does not require an AdsTurbo API key, does not generate video, does 
 - `review_ad_script`
 - `export_adsturbo_prompt`
 
+## Developer Content Assets
+
+Use these pages as stable content targets when submitting to directories, community lists, or social posts:
+
+- [Build a Local MCP Server Workflow for Video Ad Planning](articles/local-mcp-server-for-video-ad-planning.md)
+- [Use an MCP UGC Script Generator Before Video Production](articles/ugc-script-generator-mcp.md)
+- [AI Ad Creative Workflow with MCP and AdsTurbo](articles/ai-ad-creative-workflow-with-mcp.md)
+
+Each article includes runnable commands, an MCP prompt example, the local-only cost boundary, and the AdsTurbo website handoff. These pages are intended to rank for long-tail queries such as `local MCP server for video ad planning`, `UGC script generator MCP`, and `AI ad creative workflow with MCP`.
+
 ## Official MCP Registry
 
 Status: prepared; npm package `0.1.4` includes `mcpName` and root `server.json`.
@@ -105,9 +115,18 @@ Submission response:
 {"ok":true,"message":"Server submitted for review!"}
 ```
 
-## Glama, Smithery, and Other MCP Directories
+## Additional Directory Targets
 
-Use the same canonical fields. Keep the message focused on:
+| Directory | Status | Next Action |
+| --- | --- | --- |
+| Official MCP Registry | Prepared, blocked by `mcp-publisher` installation | Retry `mcp-publisher login github && mcp-publisher publish` when binary download works |
+| MCP.Directory | Submitted for review on 2026-06-24 | Check listing status after review |
+| Glama | Not submitted | Use the canonical fields and npm command; link the developer articles as usage evidence |
+| PulseMCP | Pending official Registry presence | Check after Registry publish because PulseMCP discovery is registry-oriented |
+| Awesome MCP Servers | Not submitted | Prepare a focused PR entry under the marketing/creative category after the Registry listing or MCP.Directory listing is live |
+| Smithery | Needs evaluation | Only add Smithery-specific config if it improves installability without hosting paid AdsTurbo calls |
+
+Use the same canonical fields for all directory targets. Keep the message focused on:
 
 - local-only planning
 - no API key or credits

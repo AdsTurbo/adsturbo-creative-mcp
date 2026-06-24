@@ -11,6 +11,7 @@
 - UGC 广告 AI agent 工作流
 - UGC 广告脚本生成器
 - 短视频广告分镜生成器
+- AI 广告创意 MCP 工作流
 - AdsTurbo prompt 生成器
 - 本地 AI marketing CLI
 - Claude Desktop、Cursor、Codex MCP 工作流
@@ -97,6 +98,18 @@ README 顶部应稳定出现这些词，因为它们直接描述项目能力：
 - 移动 App 录屏广告
 - B2B SaaS walkthrough 广告
 - 中文输出和国内官网引导
+
+## 开发者文章信号
+
+在 `docs/articles/` 下保留有实际价值的长文页面，用来承接 README 一行表格无法覆盖的搜索问题：
+
+- 视频广告策划 MCP server
+- UGC 脚本生成器 MCP
+- AI 广告创意 MCP 工作流
+- 视频广告分镜 MCP 工作流
+- AdsTurbo prompt exporter
+
+每篇文章都应包含可运行命令、MCP prompt 示例、本地成本边界，以及带 UTM 参数和区域识别的 AdsTurbo handoff。
 
 ## 分发信号
 

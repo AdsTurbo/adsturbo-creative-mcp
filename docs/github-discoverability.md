@@ -11,6 +11,7 @@ This repository is optimized for developers and marketers searching for local AI
 - AI agent workflow for UGC ads
 - UGC ad script generator
 - Short-form video storyboard generator
+- AI ad creative workflow with MCP
 - AdsTurbo prompt generator
 - Local AI marketing CLI
 - Claude Desktop, Cursor, and Codex MCP workflow
@@ -97,6 +98,18 @@ Keep real, runnable examples under `examples/use-cases/` so GitHub and npm visit
 - mobile app screen-recording ads
 - B2B SaaS walkthrough ads
 - Chinese output with China website handoff
+
+## Developer article signals
+
+Keep long-form, useful article pages under `docs/articles/` for search queries that need more context than a README row can provide:
+
+- local MCP server for video ad planning
+- UGC script generator MCP
+- AI ad creative workflow with MCP
+- video ad storyboard MCP workflow
+- AdsTurbo prompt exporter
+
+Each article should include a runnable command, an MCP prompt example, the local-only cost boundary, and a region-aware AdsTurbo handoff with UTM parameters.
 
 ## Distribution signals
 
