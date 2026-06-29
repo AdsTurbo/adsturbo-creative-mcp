@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.adsturbo/adsturbo-creative-mcp",
   "title": "AdsTurbo Creative MCP",
-  "description": "Local-only MCP server and CLI for AI agents to create video ad briefs, hooks, UGC scripts, storyboards, reviews, and AdsTurbo-ready prompts.",
+  "description": "Local-only MCP server and CLI for AI video ad briefs, UGC scripts, storyboards, and prompts.",
   "websiteUrl": "https://github.com/AdsTurbo/adsturbo-creative-mcp",
   "repository": {
     "url": "https://github.com/AdsTurbo/adsturbo-creative-mcp",
