@@ -65,7 +65,7 @@ AdsTurbo Creative MCP 帮助 AI Agent 在团队消耗视频生成 credits 之前
 
 ## 官方 MCP Registry
 
-状态：已准备；npm package `0.1.5` 已包含 `mcpName` 和根目录 `server.json`。
+状态：已于 2026-06-29 发布。npm package `0.1.5` 已包含 `mcpName` 和根目录 `server.json`。
 
 必需文件和元数据：
 
@@ -82,6 +82,16 @@ npm publish --access public --registry=https://registry.npmjs.org/
 mcp-publisher login github
 mcp-publisher publish
 curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.AdsTurbo/adsturbo-creative-mcp"
+```
+
+已验证的 Registry 响应：
+
+```text
+server: io.github.AdsTurbo/adsturbo-creative-mcp
+version: 0.1.5
+status: active
+isLatest: true
+publishedAt: 2026-06-29T07:44:21.800184Z
 ```
 
 注意：
@@ -120,7 +130,7 @@ Local-only MCP server and CLI for AI video ad briefs, UGC scripts, storyboards, 
 
 | 目录 | 状态 | 下一步 |
 | --- | --- | --- |
-| 官方 MCP Registry | 已准备，但被 `mcp-publisher` 安装阻塞 | 等二进制下载恢复后重试 `mcp-publisher login github && mcp-publisher publish` |
+| 官方 MCP Registry | 已于 2026-06-29 发布 | 后续监控 listing，并在未来 npm release 时保持 `server.json` 同步 |
 | MCP.Directory | 已于 2026-06-24 提交审核 | 审核后检查 listing 状态 |
 | Glama | 未提交 | 使用标准资料和 npm command，并把开发者文章作为使用证据 |
 | PulseMCP | 等官方 Registry 出现 | Registry 发布后再检查，因为 PulseMCP 更偏向从 Registry 发现 |
@@ -152,12 +162,13 @@ AdsTurbo Creative MCP is a local-only MCP server and CLI for AI video ad plannin
 
 ## 当前阻塞
 
-- 这台机器安装 `mcp-publisher` 时被 GitHub release asset 下载问题阻塞。
-- 2026-06-24，直接 `curl` 可以访问 `mcp-publisher_darwin_arm64.tar.gz` asset，并下载了 6.8 MB 中的 3.8 MB，但在 57% 处卡住。
-- 2026-06-24，`curl -C -` 断点续传失败，报 GitHub port 443 connection timeout。
-- 2026-06-24，`gh release download` 无进度输出并长时间悬挂。
-- 2026-06-24，从源码构建的备选方案也失败：`git clone --depth 1 --branch v1.7.9 https://github.com/modelcontextprotocol/registry.git` 同样遇到 GitHub port 443 connection timeout。
-- 后续可以在 GitHub 下载稳定时重试，或在能正常 clone GitHub 的机器上从源码构建，也可以在另一台机器安装 `mcp-publisher`，进入本仓库运行 `mcp-publisher login github && mcp-publisher publish`。
+- M1 官方 Registry 发布无阻塞。
+
+已解决说明：
+
+- 起初这台机器安装 `mcp-publisher` 时被 GitHub release asset 下载问题阻塞。
+- Registry namespace 区分大小写。官方 Registry 识别的是 `io.github.AdsTurbo/*`，所以 `0.1.5` 已将 `package.json#mcpName` 和 `server.json#name` 对齐为 `io.github.AdsTurbo/adsturbo-creative-mcp`。
+- npm `0.1.5` 发布并刷新 Registry 登录后，`mcp-publisher publish` 已成功。
 
 ## 参考
 

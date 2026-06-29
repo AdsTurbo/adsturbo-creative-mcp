@@ -65,7 +65,7 @@ Each article includes runnable commands, an MCP prompt example, the local-only c
 
 ## Official MCP Registry
 
-Status: prepared; npm package `0.1.5` includes `mcpName` and root `server.json`.
+Status: published on 2026-06-29. npm package `0.1.5` includes `mcpName` and root `server.json`.
 
 Required files and metadata:
 
@@ -82,6 +82,16 @@ npm publish --access public --registry=https://registry.npmjs.org/
 mcp-publisher login github
 mcp-publisher publish
 curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.AdsTurbo/adsturbo-creative-mcp"
+```
+
+Verified registry response:
+
+```text
+server: io.github.AdsTurbo/adsturbo-creative-mcp
+version: 0.1.5
+status: active
+isLatest: true
+publishedAt: 2026-06-29T07:44:21.800184Z
 ```
 
 Notes:
@@ -120,7 +130,7 @@ Submission response:
 
 | Directory | Status | Next Action |
 | --- | --- | --- |
-| Official MCP Registry | Prepared, blocked by `mcp-publisher` installation | Retry `mcp-publisher login github && mcp-publisher publish` when binary download works |
+| Official MCP Registry | Published on 2026-06-29 | Monitor listing and keep `server.json` aligned with future npm releases |
 | MCP.Directory | Submitted for review on 2026-06-24 | Check listing status after review |
 | Glama | Not submitted | Use the canonical fields and npm command; link the developer articles as usage evidence |
 | PulseMCP | Pending official Registry presence | Check after Registry publish because PulseMCP discovery is registry-oriented |
@@ -152,12 +162,13 @@ AdsTurbo Creative MCP is a local-only MCP server and CLI for AI video ad plannin
 
 ## Current Blockers
 
-- `mcp-publisher` installation is blocked by GitHub release asset download issues on this machine.
-- On 2026-06-24, direct `curl` reached the `mcp-publisher_darwin_arm64.tar.gz` asset and downloaded 3.8 MB of 6.8 MB, then stalled at 57%.
-- On 2026-06-24, `curl -C -` resume failed with a GitHub port 443 connection timeout.
-- On 2026-06-24, `gh release download` hung without progress output.
-- On 2026-06-24, source-build fallback with `git clone --depth 1 --branch v1.7.9 https://github.com/modelcontextprotocol/registry.git` also failed with a GitHub port 443 connection timeout.
-- Retry when GitHub downloads are stable, build from source on a machine that can clone GitHub, or install `mcp-publisher` on another machine and run `mcp-publisher login github && mcp-publisher publish` from this repository.
+- None for M1 official Registry publication.
+
+Resolved notes:
+
+- `mcp-publisher` installation was originally blocked by GitHub release asset download issues on this machine.
+- Registry namespace is case-sensitive. The official Registry recognized `io.github.AdsTurbo/*`, so `0.1.5` aligns `package.json#mcpName` and `server.json#name` to `io.github.AdsTurbo/adsturbo-creative-mcp`.
+- `mcp-publisher publish` succeeded after npm `0.1.5` was published and Registry login was refreshed.
 
 ## References
 
