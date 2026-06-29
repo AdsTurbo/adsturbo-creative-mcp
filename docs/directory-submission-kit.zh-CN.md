@@ -9,7 +9,7 @@
 | 字段 | 值 |
 | --- | --- |
 | Name | AdsTurbo Creative MCP |
-| MCP name | `io.github.adsturbo/adsturbo-creative-mcp` |
+| MCP name | `io.github.AdsTurbo/adsturbo-creative-mcp` |
 | Repository | `https://github.com/AdsTurbo/adsturbo-creative-mcp` |
 | npm package | `adsturbo-creative-mcp` |
 | Install command | `npx -y adsturbo-creative-mcp` |
@@ -115,7 +115,7 @@ https://adsturbo.cn/features/product-video?utm_source=adsturbo_creative_mcp&utm_
 ```bash
 npm view adsturbo-creative-mcp version mcpName --registry=https://registry.npmjs.org/
 npm exec --package=adsturbo-creative-mcp -- adsturbo-creative --help
-curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.adsturbo/adsturbo-creative-mcp"
+curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.AdsTurbo/adsturbo-creative-mcp"
 ```
 
 ## Registry 重试命令
@@ -123,5 +123,5 @@ curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.ads
 ```bash
 mcp-publisher login github
 mcp-publisher publish
-curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.adsturbo/adsturbo-creative-mcp"
+curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.AdsTurbo/adsturbo-creative-mcp"
 ```

@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.adsturbo/adsturbo-creative-mcp",
+  "name": "io.github.AdsTurbo/adsturbo-creative-mcp",
   "title": "AdsTurbo Creative MCP",
   "description": "Local-only MCP server and CLI for AI video ad briefs, UGC scripts, storyboards, and prompts.",
   "websiteUrl": "https://github.com/AdsTurbo/adsturbo-creative-mcp",
@@ -8,13 +8,13 @@
     "url": "https://github.com/AdsTurbo/adsturbo-creative-mcp",
     "source": "github"
   },
-  "version": "0.1.4",
+  "version": "0.1.5",
   "packages": [
     {
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "adsturbo-creative-mcp",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "runtimeHint": "npx",
       "transport": {
         "type": "stdio"

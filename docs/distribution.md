@@ -9,7 +9,7 @@ This document keeps the submission package for AdsTurbo Creative MCP consistent 
 | Field | Value |
 | --- | --- |
 | Project | AdsTurbo Creative MCP |
-| MCP name | `io.github.adsturbo/adsturbo-creative-mcp` |
+| MCP name | `io.github.AdsTurbo/adsturbo-creative-mcp` |
 | GitHub repo | `https://github.com/AdsTurbo/adsturbo-creative-mcp` |
 | npm package | `adsturbo-creative-mcp` |
 | MCP server command | `npx -y adsturbo-creative-mcp` |
@@ -65,7 +65,7 @@ Each article includes runnable commands, an MCP prompt example, the local-only c
 
 ## Official MCP Registry
 
-Status: prepared; npm package `0.1.4` includes `mcpName` and root `server.json`.
+Status: prepared; npm package `0.1.5` includes `mcpName` and root `server.json`.
 
 Required files and metadata:
 
@@ -81,7 +81,7 @@ npm test
 npm publish --access public --registry=https://registry.npmjs.org/
 mcp-publisher login github
 mcp-publisher publish
-curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.adsturbo/adsturbo-creative-mcp"
+curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.AdsTurbo/adsturbo-creative-mcp"
 ```
 
 Notes:
@@ -148,7 +148,7 @@ AdsTurbo Creative MCP is a local-only MCP server and CLI for AI video ad plannin
 - `npm view adsturbo-creative-mcp version --registry=https://registry.npmjs.org/`
 - `npm exec --package=adsturbo-creative-mcp -- adsturbo-creative --help`
 - `mcp-publisher publish`
-- registry search returns `io.github.adsturbo/adsturbo-creative-mcp`
+- registry search returns `io.github.AdsTurbo/adsturbo-creative-mcp`
 
 ## Current Blockers
 

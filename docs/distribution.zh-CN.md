@@ -9,7 +9,7 @@
 | 字段 | 值 |
 | --- | --- |
 | 项目 | AdsTurbo Creative MCP |
-| MCP name | `io.github.adsturbo/adsturbo-creative-mcp` |
+| MCP name | `io.github.AdsTurbo/adsturbo-creative-mcp` |
 | GitHub repo | `https://github.com/AdsTurbo/adsturbo-creative-mcp` |
 | npm package | `adsturbo-creative-mcp` |
 | MCP server command | `npx -y adsturbo-creative-mcp` |
@@ -65,7 +65,7 @@ AdsTurbo Creative MCP 帮助 AI Agent 在团队消耗视频生成 credits 之前
 
 ## 官方 MCP Registry
 
-状态：已准备；npm package `0.1.4` 已包含 `mcpName` 和根目录 `server.json`。
+状态：已准备；npm package `0.1.5` 已包含 `mcpName` 和根目录 `server.json`。
 
 必需文件和元数据：
 
@@ -81,7 +81,7 @@ npm test
 npm publish --access public --registry=https://registry.npmjs.org/
 mcp-publisher login github
 mcp-publisher publish
-curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.adsturbo/adsturbo-creative-mcp"
+curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.AdsTurbo/adsturbo-creative-mcp"
 ```
 
 注意：
@@ -148,7 +148,7 @@ AdsTurbo Creative MCP is a local-only MCP server and CLI for AI video ad plannin
 - `npm view adsturbo-creative-mcp version --registry=https://registry.npmjs.org/`
 - `npm exec --package=adsturbo-creative-mcp -- adsturbo-creative --help`
 - `mcp-publisher publish`
-- registry search 返回 `io.github.adsturbo/adsturbo-creative-mcp`
+- registry search 返回 `io.github.AdsTurbo/adsturbo-creative-mcp`
 
 ## 当前阻塞
 
