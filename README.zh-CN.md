@@ -9,6 +9,8 @@
 
 面向 AI 视频广告策划的本地 MCP server。
 
+由 [AdsTurbo](https://adsturbo.ai) 团队开发——面向跨境电商卖家和投放团队的 AI 视频广告工具。本服务器完全本地运行，不调用 AdsTurbo API，也不消耗积分。
+
 [English](README.md)
 
 AdsTurbo Creative MCP 帮助 Claude、Cursor、Codex、Copilot 等 AI Agent 在生成视频前，先完成广告 brief、hook、UGC 脚本、分镜、变体测试计划、脚本评审和 AdsTurbo 可用 prompt。
