@@ -9,6 +9,8 @@
 
 Local MCP server for AI video ad planning.
 
+Built by the team behind [AdsTurbo](https://adsturbo.ai), an AI video ad generator for ecommerce sellers and performance agencies. This server is local-only: it never calls the AdsTurbo API and never spends credits.
+
 [简体中文](README.zh-CN.md)
 
 AdsTurbo Creative MCP helps AI agents plan video ad briefs, hooks, UGC scripts, storyboards, variation plans, script reviews, and AdsTurbo-ready prompts before a team spends on video generation.
